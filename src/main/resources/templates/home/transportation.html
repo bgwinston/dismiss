@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>th:text="${title}">Title</title>
+</head>
+<body>
+<h1> Change Transportation</h1>
+
+<form action="home/confirmation" method="Post">
+    <label> Original Transportation</label>
+    <select>
+        <option value="Car Rider">   Car Rider</option>
+        <option value="Walker">      Walker</option>
+        <option value="Bus Rider">   Bus Rider</option>
+    </select>
+    <br/>
+    <br/>
+    <label> Transportation Change</label>
+        <select>
+            <option value="Car Rider">   Car Rider</option>
+            <option value="Walker">      Walker</option>
+            <option value="Bus Rider">   Bus Rider</option>
+        </select>
+    <br/>
+    <br/>
+    <label> Your Name </label>
+    <input type="text" name="trans" />
+    <br/>
+    <input type="submit" value="Submit change"/>
+    </form>
+</form>
+
+</body>
+</html>
+
+//flash message or confirmation page//

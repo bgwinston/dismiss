@@ -1,30 +1,35 @@
 package org.launchcode.dismissal1.controllers;
 
+import org.omg.CORBA.Request;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.Scanner;
 
 
 @Controller
-@RequestMapping("login")
+@RequestMapping("home")
+
 public class LoginController {
 
     @RequestMapping(value = "")
-    public String login(Model model) {
-        model.addAttribute("title", "The Dismissal App");
-        return "login/login";
+    public String selection(Model model) {
+        model.addAttribute("title", "Welcome to The Dismissal App");
+        return "home/login";
     }
 
-    @RequestMapping(value= "log")
-    @ResponseBody
-    public String Goodbye() {
-        return "goodbye";
+    @RequestMapping(value= "transportation")
+    public String transportation (Model model) {
+        model.addAttribute("title","Dismissal App");
+        return "home/transportation";
     }
 
-    @RequestMapping(value= "iforgot")
+    @RequestMapping(value= "early")
     @ResponseBody
-    public String Hey(){
+    public String early(){
         return "hey";
     }
 }
