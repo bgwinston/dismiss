@@ -15,6 +15,7 @@ import java.util.Scanner;
 
 public class LoginController {
 
+
     @RequestMapping(value = "")
     public String selection() {
         return "home/login";
@@ -24,7 +25,7 @@ public class LoginController {
     public String transportation () {
         return "home/transportation";
     }
-    
+
     @RequestMapping(value= "early")
     public String early(){
         return "home/early";
