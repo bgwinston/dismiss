@@ -14,7 +14,6 @@ import java.util.Scanner;
 
 public class LoginController {
 
-
     @RequestMapping(value = "")
     public String selection() {
         return "home/login";
