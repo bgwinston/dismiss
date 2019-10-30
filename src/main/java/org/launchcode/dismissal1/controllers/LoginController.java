@@ -24,7 +24,7 @@ public class LoginController {
     public String transportation () {
         return "home/transportation";
     }
-
+    
     @RequestMapping(value= "early")
     public String early(){
         return "home/early";
