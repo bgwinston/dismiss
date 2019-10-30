@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head>
-    <title>{{title}}</title>
+    <div th:fragment="copy">
 
 </head>
+        <title>The Dismissal App</title>
+<h1> The Dismissal App</h1>
 <body>
+
 <form action="/home/transportation" method="post">
     <button type="submit" value = "submit" name="change">Change Transportation</button>
 </form>
@@ -20,4 +23,4 @@
 
 </body>
 </html>
-//Make buttons go across screen
+/*Make buttons go across screen

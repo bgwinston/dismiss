@@ -16,20 +16,17 @@ import java.util.Scanner;
 public class LoginController {
 
     @RequestMapping(value = "")
-    public String selection(Model model) {
-        model.addAttribute("title", "Welcome to The Dismissal App");
+    public String selection() {
         return "home/login";
     }
 
     @RequestMapping(value= "transportation")
-    public String transportation (Model model) {
-        model.addAttribute("title","Dismissal App");
+    public String transportation () {
         return "home/transportation";
     }
 
     @RequestMapping(value= "early")
-    @ResponseBody
     public String early(){
-        return "hey";
+        return "home/early";
     }
 }
