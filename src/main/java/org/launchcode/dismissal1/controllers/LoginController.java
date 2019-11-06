@@ -18,5 +18,9 @@ public class LoginController {
         return "home/login";
     }
 
+    @RequestMapping(value = "log")
+    public String log() {
+        return "home/log";
+    }
 
 }
