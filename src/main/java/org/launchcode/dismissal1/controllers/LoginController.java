@@ -23,4 +23,8 @@ public class LoginController {
         return "home/log";
     }
 
+    @RequestMapping(value = "newaccount")
+    public String account() {
+        return "home/newaccount";
+    }
 }
