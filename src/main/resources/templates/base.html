@@ -1,25 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head>
-    <div th:fragment="copy">
+<head th:fragment="copy"/>
+        <meta charset="UTF-8"/>
+        <title th:text="${title}">The Dismissal App</title>
 
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+        <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"/>
 </head>
-        <title>The Dismissal App</title>
-<h1> The Dismissal App</h1>
-<body>
 
-<form action="/switch/transportation" method="post">
-    <button type="submit" value = "submit" name="change">Change Transportation</button>
-</form>
-<form action="/early/release" method="post">
-    <button type="submit" value = "submit" name="early">Early Pickup </button>
-</form>
-<form action="/home/log" method="post">
-    <button type="submit" value = "submit" name="log">Log</button>
-</form>
-<form action="/home" method="post">
-    <button type="submit" value = "submit" name="home">Log Out </button>
-</form>
+<body>
+<nav th:fragment="navigation"></nav>
+    <a href="/switch/transportation">Change Transportation</a>
+    <a href="/early/release">Early Pickup</a>
+    <a href="/home/log">Log</a>
+    <a href="/home">Home</a>
+</nav>
 
 </body>
 </html>
