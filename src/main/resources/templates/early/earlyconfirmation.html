@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="en"xmlns:th="http://www.thymeleaf.org/">
-<div th:insert="~{base :: copy}"></div>
+<head th:replace="fragments :: head"></head>
 
-<head>
-    <meta charset="UTF-8">
-    <title>Early Pick Up</title>
-
-</head>
 <body>
+<h1 th:text="${title}">Default Title</h1>
 
+<nav th:replace="fragments :: navigation" ></nav>
 </body>
 </html>
