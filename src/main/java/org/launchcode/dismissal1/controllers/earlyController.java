@@ -14,12 +14,14 @@ import java.util.Scanner;
 public class earlyController {
 
     @RequestMapping(value = "release")
-    public String early() {
+    public String early(Model model) {
+        model.addAttribute("title", "Early Pickup");
         return "early/release";
     }
 
     @RequestMapping(value = "earlyconfirmation")
-    public String selection() {
+    public String selection(Model model) {
+        model.addAttribute("title", "Early Pickup Confirmation");
         return "early/earlyconfirmation";
     }
 }

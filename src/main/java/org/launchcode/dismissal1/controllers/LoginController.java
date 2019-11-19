@@ -10,21 +10,29 @@ import java.util.Scanner;
 
 @Controller
 @RequestMapping("home")
-
 public class LoginController {
 
     @RequestMapping(value = "")
-    public String selection() {
+    public String selection(Model model) {
+        model.addAttribute("title", "Login");
         return "home/login";
     }
 
     @RequestMapping(value = "log")
-    public String log() {
+    public String log(Model model) {
+        model.addAttribute("title", "Log");
         return "home/log";
     }
 
     @RequestMapping(value = "newaccount")
-    public String account() {
+    public String account(Model model) {
+        model.addAttribute("title", "New Account Sign-up");
         return "home/newaccount";
+    }
+
+    @RequestMapping(value = "childsearch")
+    public String childSearch(Model model) {
+        model.addAttribute("title", "Search for your Child");
+        return "home/childsearch";
     }
 }

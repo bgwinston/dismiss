@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<div th:insert="~{base :: copy}"></div>
 <head>
-    <meta charset="UTF-8" />
-    <title>Transportation Switch</title>
+    <meta charset="UTF-8">
+    <title h1 th:text="${title}">Title</title>
+
 </head>
 
 <body>
-<h1> Change Transportation</h1>
+<h1 th:text="${title}"></h1>
 <h3> Child's Name:</h3>       <h3>Grade:</h3>
 <h3>Teacher:</h3>
 <form action="/switch/transportationconfirmation" method="Post">

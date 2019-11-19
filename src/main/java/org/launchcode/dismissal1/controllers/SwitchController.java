@@ -15,12 +15,14 @@ public class SwitchController {
 
 
     @RequestMapping(value = "transportation")
-    public String change() {
+    public String change(Model model) {
+        model.addAttribute("title", "Transportation Change");
         return "switch/transportation";
     }
 
     @RequestMapping(value = "transportationconfirmation")
-    public String early() {
+    public String early(Model model) {
+        model.addAttribute("title", "Transportation Confirmation");
         return "switch/transportationconfirmation";
     }
 }
