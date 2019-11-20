@@ -4,7 +4,8 @@ import org.omg.CORBA.Request;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -20,7 +21,12 @@ public class LoginController {
 
     @RequestMapping(value = "log")
     public String log(Model model) {
+        ArrayList<String>Log = new ArrayList<>();
         model.addAttribute("title", "Log");
+        Log.add("pickup");
+        Log.add("pickup");
+
+        model.addAttribute("Log", Log);
         return "home/log";
     }
 

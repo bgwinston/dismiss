@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<div th:insert="~{base :: copy}"></div>
 <head>
     <meta charset="UTF-8">
     <title h1 th:text="${title}">Title</title>
@@ -8,6 +7,12 @@
 </head>
 <body>
 <h1 th:text="${title}"></h1>
+<p th:unless="${Log} and ${Log.size()}">No History to display</p>
 
+<ul>
+    <!-----look for value named Log
+    //log is iterator of list--->
+    <li th:each="log : ${Log}" th:text="${log}"></li>
+</ul>
 </body>
 </html>
