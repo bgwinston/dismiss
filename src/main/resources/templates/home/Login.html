@@ -7,7 +7,9 @@
 </head>
 
 <body>
-<h1 th:text="${title}"></h1>
+<h1 th:text="${title}">Default Title</h1>
+<nav th:replace="fragments :: navigation"></nav>
+
 <h2>Your School: Pershing Elementary</h2>
 <form action="/home/log" method="Post"/>
     <label for="uname"><b>Username</b></label>

@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head>
-    <meta charset="UTF-8">
-    <title h1 th:text="${title}">Title</title>
+<head th:replace="fragments :: head"></head>
 
-</head>
 <body>
-<h1 th:text="${title}"></h1>
+<h1 th:text="${title}">Default Title</h1>
+<nav th:replace="fragments :: navigation"></nav>
+
 <p th:unless="${Log} and ${Log.size()}">No History to display</p>
 
 <ul>

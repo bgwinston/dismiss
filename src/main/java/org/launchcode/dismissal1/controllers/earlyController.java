@@ -1,6 +1,5 @@
 package org.launchcode.dismissal1.controllers;
 
-import org.apache.tomcat.jni.Time;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,18 +13,22 @@ import java.util.ArrayList;
 @Controller
 @RequestMapping("early")
 public class earlyController {
+    static ArrayList<String>log = new ArrayList<>();
 
     //Display of Form
     @RequestMapping(value = "release", method = RequestMethod.GET)
-    public String displayearlyForm(Model model, Time early) {
+    public String displayearlyForm(Model model) {
         model.addAttribute("title", "Early Pickup");
+        model.addAttribute("early", "log");
+
         return "early/release";
     }
 
     //Process Form
-    @RequestMapping(value = "release", method = RequestMethod.POST)
-    public Time processearlyForm(@RequestParam Time early) {
-
+    @RequestMapping(value = "earlyconfirmation")
+    public String processearlyForm(@RequestParam String early){
+        log.add(early);
+        return "early/earlyconfirmation";
     }
 
 }
