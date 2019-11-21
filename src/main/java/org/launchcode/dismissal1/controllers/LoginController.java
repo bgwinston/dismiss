@@ -4,6 +4,7 @@ import org.omg.CORBA.Request;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -14,19 +15,19 @@ import java.util.Scanner;
 public class LoginController {
 
     @RequestMapping(value = "")
-    public String selection(Model model) {
+    public String login(Model model) {
         model.addAttribute("title", "Login");
         return "home/login";
     }
 
+    //@RequestMapping(value="login")
+    //public String loginProcessform(@RequestParam String uname){
+    //}
+
+    //Display history of pick ups and transportation changes
     @RequestMapping(value = "log")
     public String log(Model model) {
-        ArrayList<String>Log = new ArrayList<>();
         model.addAttribute("title", "Log");
-        Log.add("pickup");
-        Log.add("pickup");
-
-        model.addAttribute("Log", Log);
         return "home/log";
     }
 

@@ -6,18 +6,20 @@
 
 </head>
 
-<body>
+<body class="container">
 <h1 th:text="${title}">Default Title</h1>
 <nav th:replace="fragments :: navigation"></nav>
 
 <h2>Your School: Pershing Elementary</h2>
-<form action="/home/log" method="Post"/>
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" id="uname" required>
-
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" id="psw" required>
-
+<form action="/home/log" method="Post" />
+    <div class="form-group"></div>
+         <label for ="uname_field">Username</label>
+         <input class="form-control" type="text" placeholder="Enter Username" id= "uname_field" name="uname" required>
+    </div>
+    <div class="form-group"></div>
+         <label for = "psw_field">Password</label>
+         <input class="form-control" type="password" placeholder="Enter Password" id="psw_field" name="psw" required>
+    </div>
     <button type="submit">Login</button>
 </form>
 <form action="/home/newaccount" method="Post"/>

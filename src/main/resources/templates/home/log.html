@@ -2,15 +2,23 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 
-<body>
+<body class="container">
 <h1 th:text="${title}">Default Title</h1>
 <nav th:replace="fragments :: navigation"></nav>
 
 <p th:unless="${Log} and ${Log.size()}">No History to display</p>
+<table class="table">
+    <tr>
+        <th> Dismissal Method</th>
+        <th> Date</th>
+        <th>Note</th>
+    </tr>
+    <!----<tr th:each= "log : ${logs}">
+        <td th:text="$log.key}"></td>
+        <td th:text="${log.value}"></td>
+    </tr> ---->
+</table>
 
-<ul>
-    <!-----look for value named Log
-    //log is iterator of list--->
     <li th:each="log : ${Log}" th:text="${log}"></li>
 </ul>
 </body>
