@@ -19,13 +19,12 @@ public class earlyController {
     @RequestMapping(value = "release", method = RequestMethod.GET)
     public String displayearlyForm(Model model) {
         model.addAttribute("title", "Early Pickup");
-        model.addAttribute("early", "log");
 
         return "early/release";
     }
 
     //Process Form
-    @RequestMapping(value = "earlyconfirmation")
+    @RequestMapping(value = "release", method = RequestMethod.POST)
     public String processearlyForm(@RequestParam String early){
         log.add(early);
         return "early/earlyconfirmation";
