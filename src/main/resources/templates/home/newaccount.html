@@ -4,20 +4,18 @@
 
 <head th:replace="fragments :: head"></head>
 
-<<body class="container">
+<body class="container">
 
 <h1 th:text="${title}">Default Title</h1>
 <nav th:replace="fragments :: navigation"></nav>
 
 <form action="/home/log" method="Post"/>
     <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" id="uname" name="uname_field" required>
+    <input type="text" placeholder="Enter Username" id="uname" name= "uname_field" required>
 
     <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" id="psw" name = "psw_field" required>
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password Again" id="psw" name = "psw_field" required>
 
 <button type="submit">Login</button>
 </form>
