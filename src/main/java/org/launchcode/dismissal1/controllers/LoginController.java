@@ -1,22 +1,20 @@
 package org.launchcode.dismissal1.controllers;
 
-import org.omg.CORBA.Request;
+import org.launchcode.dismissal1.models.dismiss;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 
 @Controller
 @RequestMapping("home")
 public class LoginController {
 
-    static ArrayList<String>uname= new ArrayList<>();
+    static ArrayList<dismiss>login= new ArrayList<>();
 
     // Login Form Display
     @RequestMapping(value = "", method= RequestMethod.GET)
