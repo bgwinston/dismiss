@@ -9,13 +9,14 @@
 <h1 th:text="${title}">Default Title</h1>
 <nav th:replace="fragments :: navigation"></nav>
 
-<form action="/home/log" method="Post"/>
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" id="uname" name= "uname_field" required>
+<form method="post" th:object="${dismiss}">
+    <label th:for= "username" >Username</label>
+    <input type="text" laceholder="Enter Username" th:field="*{username}">
+    <span th:errors="*{username}" class="error"></span>
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" id="psw" name = "psw_field" required>
-
+    <label th:for="password">Password</label>
+    <input type="password" placeholder="Enter Password" th:field="*{password}" />
+    <span th:errors="*{password}" class="error"></span>
 
 <button type="submit">Login</button>
 </form>
