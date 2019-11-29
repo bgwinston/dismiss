@@ -11,14 +11,37 @@
 
 <form method="post" th:object="${dismiss}">
     <label th:for= "username" >Username</label>
-    <input type="text" laceholder="Enter Username" th:field="*{username}">
+    <input type="text" placeholder="Enter Username" th:field="*{username}">
     <span th:errors="*{username}" class="error"></span>
 
     <label th:for="password">Password</label>
     <input type="password" placeholder="Enter Password" th:field="*{password}" />
     <span th:errors="*{password}" class="error"></span>
 
-<button type="submit">Login</button>
+    <label th:for="studentname">Student Name</label>
+    <input type="text" placeholder="Enter your child's name." th:field="*{studentname}" />
+    <span th:errors="*{studentname}" class="error"></span>
+
+    <label th:for=" teachername">Select Teacher's Name</label>
+         <select th:field="*{teachername}">
+            <option th:value="BW"> Britaney Winston </option>
+            <option th:value="MM"> Mary Miller</option>
+            <option th:value="WD">William Day</option>
+            <option th:value="AM">Annie May</option>
+            <option th:value="CR"> Candace Reynolds</option>
+            <option th:value="RM"> Ronnie Monroe</option>
+            <option th:value="EF">Elaine Foster</option>
+            <option th:value="TN">Tommy Ned</option>
+            <option th:value="LD"> Lola Darling</option>
+            <option th:value="HS">Hannah Simpson</option>
+            <option th:value="RS" >Rayven Symone</option>
+            <option th:value="VW" >Vincent Williams</option>
+            <option th:value="LR" >Lilah Rose</option>
+            <option th:value="KL" >Kendal Lane</option>
+         </select>
+    <span th:errors="*{teachername}" class="error"></span>
+
+    <button type="submit">Create Account</button>
 </form>
 </body>
 </html>

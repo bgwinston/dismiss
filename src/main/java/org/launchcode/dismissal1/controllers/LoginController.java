@@ -16,16 +16,17 @@ import java.util.ArrayList;
 @RequestMapping("home")
 public class LoginController {
 
-    static ArrayList<dismiss>login= new ArrayList<>();
+    static ArrayList<dismiss> login = new ArrayList<>();
 
     // Login Form Display
-    @RequestMapping(value = "", method= RequestMethod.GET)
+    @RequestMapping(value = "", method = RequestMethod.GET)
     public String login(Model model) {
         model.addAttribute("title", "Login");
         return "home/login";
     }
+
     //Login process form
-    @RequestMapping(value = "", method= RequestMethod.POST)
+    @RequestMapping(value = "", method = RequestMethod.POST)
     public String loginProcess(@RequestParam String uname, @RequestParam String psw) {
         return "home/login";
     }
@@ -38,7 +39,7 @@ public class LoginController {
     }
 
     //New Account form
-    @RequestMapping(value = "newaccount", method= RequestMethod.GET)
+    @RequestMapping(value = "newaccount", method = RequestMethod.GET)
     public String account(Model model) {
         model.addAttribute("title", "New Account Sign-up");
         model.addAttribute(new dismiss());
@@ -46,18 +47,12 @@ public class LoginController {
     }
 
     //New Account process form
-    @RequestMapping(value = "newaccount", method= RequestMethod.POST)
-    public String accountProcess (@ModelAttribute @Valid dismiss newDismiss, Errors errors, Model model) {
-        if(errors.hasErrors()){
+    @RequestMapping(value = "newaccount", method = RequestMethod.POST)
+    public String accountProcess(@ModelAttribute @Valid dismiss newDismiss, Errors errors, Model model) {
+        if (errors.hasErrors()) {
             model.addAttribute("title", "New Account Sign-up");
-            return"home/newaccount";
+            return "home/newaccount";
         }
-        return "home/log";
-    }
-
-    @RequestMapping(value = "childsearch")
-    public String childSearch(Model model) {
-        model.addAttribute("title", "Search for your Child");
-        return "home/childsearch";
+        return "home/newaccount";
     }
 }
