@@ -1,6 +1,8 @@
 package org.launchcode.dismissal1.controllers;
 
+import org.launchcode.dismissal1.models.data.DismissDao;
 import org.launchcode.dismissal1.models.dismiss;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -10,13 +12,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
 
 @Controller
 @RequestMapping("home")
 public class LoginController {
 
-    static ArrayList<dismiss> login = new ArrayList<>();
+    @Autowired
+    private DismissDao dismissDao;
 
     // Login Form Display
     @RequestMapping(value = "", method = RequestMethod.GET)
@@ -28,13 +30,16 @@ public class LoginController {
     //Login process form
     @RequestMapping(value = "", method = RequestMethod.POST)
     public String loginProcess(@RequestParam String uname, @RequestParam String psw) {
+        if
         return "home/login";
     }
+
 
     //Display history of pick ups and transportation changes
     @RequestMapping(value = "log")
     public String log(Model model) {
         model.addAttribute("title", "Log");
+        model.addAttribute("dismiss", DismissDao.findAll());
         return "home/log";
     }
 
