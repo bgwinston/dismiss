@@ -1,9 +1,11 @@
 package org.launchcode.dismissal1.models;
 
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -27,8 +29,9 @@ public class student {
     @Size(min = 1, message= "Choose your child's grade level.")
     private int gradelevel;
 
-    //@ManyToOne
-    //private User user;
+
+    @ManyToOne
+    private user user;
 
     public student(String studentname, String teachername, int gradelevel) {
         this.studentname = studentname;
