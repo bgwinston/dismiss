@@ -2,6 +2,7 @@
 package org.launchcode.dismissal1.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,11 +15,11 @@ public class user {
     private int id;
     //table columns
 
-    //@NotNull
+    @NotNull
     @Size(min = 3, max = 15)
     private String username;
 
-    //@NotNull
+    @NotNull
     @Size(min = 3, max = 15)
     private String password;
 
@@ -27,7 +28,7 @@ public class user {
     private List<student>students=new ArrayList<>();
 
 
-    public user(String username, String password, String studentname, String teachername) {
+    public user(String username, String password) {
         this.username = username;
         this.password = password;
     }

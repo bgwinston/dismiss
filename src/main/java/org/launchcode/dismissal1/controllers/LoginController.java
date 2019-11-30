@@ -1,5 +1,6 @@
 package org.launchcode.dismissal1.controllers;
 
+import org.launchcode.dismissal1.models.data.ChangetransportationDao;
 import org.launchcode.dismissal1.models.data.EarlyDao;
 import org.launchcode.dismissal1.models.data.StudentDao;
 import org.launchcode.dismissal1.models.data.UserDao;
@@ -29,6 +30,8 @@ public class LoginController {
     @Autowired
     EarlyDao earlyDao;
 
+    @Autowired
+    ChangetransportationDao changetransportationDao;
 
     // Login Form Display
     @RequestMapping(value = "", method = RequestMethod.GET)
@@ -61,14 +64,14 @@ public class LoginController {
 
     //New Account process form
     @RequestMapping(value = "newaccount", method = RequestMethod.POST)
-    public String accountProcess(@ModelAttribute @Valid user newUser, Errors errors, Model model) {
+    public String accountProcess(@ModelAttribute @Valid user user, Errors errors, Model model) {
         if (errors.hasErrors()) {
             model.addAttribute("title", "New Account Sign-up");
             return "home/newaccount";
         }
-        //dismissDao.save(newDismiss);
-        return "home/newaccount";
+        userDao.save(user);
+        return "home/log";
 
     }
+    }
 
-}
