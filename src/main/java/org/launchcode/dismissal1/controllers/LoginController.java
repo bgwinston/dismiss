@@ -1,7 +1,9 @@
 package org.launchcode.dismissal1.controllers;
 
-import org.launchcode.dismissal1.models.data.DismissDao;
-import org.launchcode.dismissal1.models.dismiss;
+import org.launchcode.dismissal1.models.data.EarlyDao;
+import org.launchcode.dismissal1.models.data.StudentDao;
+import org.launchcode.dismissal1.models.data.UserDao;
+import org.launchcode.dismissal1.models.user;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,8 +19,16 @@ import javax.validation.Valid;
 @RequestMapping("home")
 public class LoginController {
 
+    //Autowired-Springboot creates everything needed from DAO's to run controller
     @Autowired
-    private DismissDao dismissDao;
+    UserDao userDao;
+
+    @Autowired
+    StudentDao studentDao;
+
+    @Autowired
+    EarlyDao earlyDao;
+
 
     // Login Form Display
     @RequestMapping(value = "", method = RequestMethod.GET)
@@ -30,16 +40,14 @@ public class LoginController {
     //Login process form
     @RequestMapping(value = "", method = RequestMethod.POST)
     public String loginProcess(@RequestParam String uname, @RequestParam String psw) {
-        if
         return "home/login";
     }
-
 
     //Display history of pick ups and transportation changes
     @RequestMapping(value = "log")
     public String log(Model model) {
         model.addAttribute("title", "Log");
-        model.addAttribute("dismiss", DismissDao.findAll());
+        //model.addAttribute("early", earlyDao.findAllById(dismiss<  >));
         return "home/log";
     }
 
@@ -47,17 +55,20 @@ public class LoginController {
     @RequestMapping(value = "newaccount", method = RequestMethod.GET)
     public String account(Model model) {
         model.addAttribute("title", "New Account Sign-up");
-        model.addAttribute(new dismiss());
+        model.addAttribute(new user());
         return "home/newaccount";
     }
 
     //New Account process form
     @RequestMapping(value = "newaccount", method = RequestMethod.POST)
-    public String accountProcess(@ModelAttribute @Valid dismiss newDismiss, Errors errors, Model model) {
+    public String accountProcess(@ModelAttribute @Valid user newUser, Errors errors, Model model) {
         if (errors.hasErrors()) {
             model.addAttribute("title", "New Account Sign-up");
             return "home/newaccount";
         }
+        //dismissDao.save(newDismiss);
         return "home/newaccount";
+
     }
+
 }
