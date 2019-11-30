@@ -1,25 +1,34 @@
 <!DOCTYPE html>
-<html lang="en"xmlns:th="http://www.thymeleaf.org/">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
+
 <head th:replace="fragments :: head"></head>
 
 <body>
-    <h1 th:text="${title}">Default Title</h1>
-    <nav th:replace="fragments :: navigation"></nav>
+<h1 th:text="${title}">Default Title</h1>
+<nav th:replace="fragments :: navigation"></nav>
 
-    <h3> Child's Name:</h3>       <h3>Grade:</h3>
+<h3> Child's Name:</h3>       <h3>Grade:</h3>
 <h3>Teacher:</h3>
-    <medium> Type the time in hours and minutes that you would like to pick up your child.</medium>
+<medium> Type the time in hours and minutes that you would like to pick up your child.</medium>
 <br/>
 <br/>
 <br/>
-<form method = "post">
-    <input type="Time" id="pickup" name="appt"
-       min="08:30" max="16:00" required/>
-    <small>Pick up hours are from 8:30 am - 4 pm</small>
-    <button type="submit" value = "submit" name="early">Submit Time</button>
-</form>
-    <h4> Please double check the time.  Your child's teacher will be notified and your child will be in the front office ready for pick at the time you have selected. </h4>
+<form method = "post" th:object="${early}">
+    <label th:for= "timeofpickup" >Time</label>
+    <input type="text" placeholder="Enter Time in format hh:mm:ss" th:field="*{timeofpickup}">
+    <span th:errors="*{timeofpickup}" class="error"></span>
 
+    <label th:for="dateofpickup">Date</label>
+    <input type="text" placeholder="Enter date in format mm:dd:yyyy" th:field="*{dateofpickup}">
+    <span th:errors="*{dateofpickup}" class="error"></span>
+
+    <label th:for="notes">Leave a Note</label>
+    <input type="text" placeholder="Write a note" th:field="*{notes}">
+    <span th:errors="*{notes}" class="error"></span>
+
+    <button type="submit">Submit Time</button>
+</form>
 
 </body>
 </html>

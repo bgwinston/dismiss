@@ -1,5 +1,4 @@
 package org.launchcode.dismissal1.controllers;
-
 import org.launchcode.dismissal1.models.data.ChangetransportationDao;
 import org.launchcode.dismissal1.models.data.EarlyDao;
 import org.launchcode.dismissal1.models.data.StudentDao;
@@ -43,6 +42,7 @@ public class LoginController {
     //Login process form
     @RequestMapping(value = "", method = RequestMethod.POST)
     public String loginProcess(@RequestParam String uname, @RequestParam String psw) {
+
         return "home/login";
     }
 
