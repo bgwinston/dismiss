@@ -3,6 +3,7 @@ package org.launchcode.dismissal1.models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -11,19 +12,19 @@ public class changetransportation {
     @GeneratedValue
     private int id;
 
-    //@NotNull
+    @NotNull
     @Size(min = 3, max= 8, message = "Select Current Transportation.")
     private String transportation;
 
-    //@NotNull
+    @NotNull
     @Size(min = 3, max= 8, message = "Select Transportation change.")
     private String transportationchange;
 
-    //@NotNull
+    @NotNull
     @Size(min = 3, max= 8, message = "Enter date in mm:dd:yyyy format.")
     private String datec;
 
-    //@NotNull
+    @NotNull
     @Size(min = 3, max=25, message= "Write a note for your records.")
     private String notes1;
 
@@ -40,6 +41,11 @@ public class changetransportation {
         this.notes1 = notes1;
         //this.formattedDate = formattedDate;
         }
+
+    public changetransportation() {
+
+    }
+
     public int getId() {
         return id;
         }

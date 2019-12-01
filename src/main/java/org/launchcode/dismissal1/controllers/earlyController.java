@@ -32,6 +32,7 @@ public class earlyController {
 
     @Autowired
     ChangetransportationDao changetransportationDao;
+
     static ArrayList<String> log = new ArrayList<>();
 
     //Display of Form

@@ -10,25 +10,34 @@
 
 <h3> Child's Name:</h3>       <h3>Grade:</h3>
 <h3>Teacher:</h3>
-<form action="/switch/transportationconfirmation" method="Post">
-    <label> Original Transportation</label>
-    <select>
+<form method= "Post" th:object="${changetransportation}">
+    <label th:for= "transportation" >Transportation</label>
+    <select th:field="*{transportation}">
         <option value="Car Rider">   Car Rider</option>
         <option value="Walker">      Walker</option>
         <option value="Bus Rider">   Bus Rider</option>
+        <span th:errors="*{transportation}" class="error"></span>
     </select>
     <br/>
     <br/>
-    <label> Transportation Change</label>
-        <select>
+    <label th:for= "transportationchange" >Transportation Change</label>
+    <select th:field="*{transportationchange}">
             <option value="Car Rider">   Car Rider</option>
             <option value="Walker">      Walker</option>
             <option value="Bus Rider">   Bus Rider</option>
-        </select>
+            <span th:errors="*{transportationchange}" class="error"></span>
+    </select>
+
     <br/>
     <br/>
-    <label> Your Name </label>
-    <input type="text" name="trans" />
+
+    <label th:for="datec">Date</label>
+    <input type="text" placeholder="Enter date in format mm:dd:yyyy" th:field="*{datec}">
+    <span th:errors="*{datec}" class="error"></span>
+
+    <label th:for="notes1">Leave a Note</label>
+    <input type="text" placeholder="Write a note" th:field="*{notes1}">
+    <span th:errors="*{notes1}" class="error"></span>
     <br/>
     <input type="submit" value="Submit change"/>
     </form>
