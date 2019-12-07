@@ -26,17 +26,20 @@ public class student {
     private String teachername;
 
     @NotNull
-    @Size(min = 1, message= "Choose your child's grade level.")
-    private int gradelevel;
+    private String gradelevel;
 
 
     @ManyToOne
     private user user;
 
-    public student(String studentname, String teachername, int gradelevel) {
+    public student(String studentname, String teachername, String gradelevel) {
         this.studentname = studentname;
         this.teachername=teachername;
         this.gradelevel=gradelevel;
+    }
+
+    public student() {
+
     }
 
     public int getId() {
@@ -59,11 +62,11 @@ public class student {
         this.teachername = teachername;
     }
 
-    public int getGradelevel() {
+    public String getGradelevel() {
         return gradelevel;
     }
 
-    public void setGradelevel(int gradelevel) {
+    public void setGradelevel(String gradelevel) {
         this.gradelevel = gradelevel;
     }
 }

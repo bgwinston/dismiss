@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://www.thymeleaf.org/">
+
+<head th:replace="fragments :: head"></head>
+
+<body>
+<h1 th:text="${title}">Add Child</h1>
+<nav th:replace="fragments :: navigation"></nav>
+
+<form method="post" th:object="${student}">
+<label for ="studentname">Student Name</label>
+<input class="form-control" type="text" placeholder="Enter your child's name" id= "studentname" name="studentname" required>
+    <span th:errors="*{studentname}" class="error"></span>
+
+<label th:for= "teachername" >Select your child's teacher</label>
+<select th:field="*{teachername}">
+    <option value="BW">   Britaney Winston</option>
+    <option value="CH">   Cristine Hankins</option>
+    <option value="ED">   Ed Daughton</option>
+    <option value="CB">   Chris Brown</option>
+    <option value="SD">   Shane Danny</option>
+    <option value="JC">   Jessica Clark</option>
+    <option value="DT">   Dianna Turnner</option>
+    <option value="RG">   Rhonda Grane</option>
+    <span th:errors="*{teachername}" class="error"></span>
+</select>
+<label th:for= "gradelevel" >Choose Grade Level</label>
+    <select th:field="*{gradelevel}">
+        <option value="K">   Kindergarten</option>
+        <option value="1">   1st Grade</option>
+        <option value="2">   2nd Grade</option>
+        <option value="3">   3rd Grade</option>
+        <option value="4">   4th Grade</option>
+        <option value="5">   5th Grade</option>
+        <span th:errors="*{gradelevel}" class="error"></span>
+    </select>
+<button type="submit">Add Student</button>
+</form>
+
+
+</body>
+</html>
