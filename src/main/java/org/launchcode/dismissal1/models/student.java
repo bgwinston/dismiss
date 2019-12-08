@@ -18,11 +18,10 @@ public class student {
     private int id;
 
     @NotNull
-    @Size(min = 3, max = 15)
+    @Size(min = 3, max = 50)
     private String studentname;
 
     @NotNull
-    @Size(min = 1, message= "Select a teacher.")
     private String teachername;
 
     @NotNull

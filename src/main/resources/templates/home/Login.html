@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title h1 th:text="${title}">Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
 
 </head>
 
@@ -11,16 +13,23 @@
 <nav th:replace="fragments :: navigation"></nav>
 
 <h2>Your School: Pershing Elementary</h2>
-<form action="/home/log" method="Post" />
-    <div class="form-group"></div>
-         <label for ="uname_field">Username</label>
-         <input class="form-control" type="text" placeholder="Enter Username" id= "uname_field" name="uname" required>
+
+<form>
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" aria-describedby="usernameHelp">
+        <small id="usernameHelp" class="form-text text-muted">Username will only be used for this site.</small>
     </div>
-    <div class="form-group"></div>
-         <label for = "psw_field">Password</label>
-         <input class="form-control" type="password" placeholder="Enter Password" id="psw_field" name="psw" required>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1">
     </div>
-    <button type="submit">Login</button>
+    <button type="submit" class="btn btn-primary">Login</button>
+</form>
+<br/>
+<br/>
+<br/>
+
 </form>
 
 <form action="/home/newaccount" method="Post"/>

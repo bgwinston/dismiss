@@ -16,11 +16,11 @@ public class user {
     //table columns
 
     @NotNull
-    @Size(min = 3, max = 15)
+    @Size(min = 3, max = 20)
     private String username;
 
     @NotNull
-    @Size(min = 3, max = 15)
+    @Size(min = 3, max = 20)
     private String password;
 
     @OneToMany

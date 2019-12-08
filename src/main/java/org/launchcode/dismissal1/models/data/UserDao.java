@@ -12,4 +12,5 @@ import javax.transaction.Transactional;
 @Repository
 //Database will store Dismiss objects and dismiss objects have integer id's
 public interface UserDao extends CrudRepository<user,Integer> {
+
 }

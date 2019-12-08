@@ -1,4 +1,5 @@
 package org.launchcode.dismissal1.controllers;
+import org.apache.tomcat.jni.User;
 import org.launchcode.dismissal1.models.data.ChangetransportationDao;
 import org.launchcode.dismissal1.models.data.EarlyDao;
 import org.launchcode.dismissal1.models.data.StudentDao;
@@ -8,12 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @RequestMapping("home")
@@ -35,13 +35,16 @@ public class LoginController {
     // Login Form Display
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String login(Model model) {
-        model.addAttribute("title", "Login");
+        model.addAttribute("title", "The Dismissal App");
         return "home/login";
     }
 
     //Login process form
     @RequestMapping(value = "", method = RequestMethod.POST)
-    public String loginProcess(@RequestParam String uname, @RequestParam String psw) {
+    @ModelAttribute("user")
+    public String loginProcess(Model model) {
+            model.addAttribute("message", "Invalid Username");
+            model.addAttribute("title", "The Dismissal App");
 
         return "home/login";
     }

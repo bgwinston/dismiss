@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html lang="en"xmlns:th="http://www.thymeleaf.org/">
 
-<head th:replace="fragments :: head"></head>
+<head th:replace="fragments :: head">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
 
 <body>
 <h1 th:text="${title}">Add Child</h1>
 <nav th:replace="fragments :: navigation"></nav>
-
+<br/>
+<br/>
+<br/>
 <form method="post" th:object="${student}">
 <label for ="studentname">Student Name</label>
-<input class="form-control" type="text" placeholder="Enter your child's name" id= "studentname" name="studentname" required>
+<input class="form-control" type="text" placeholder="Enter your child's first and last name." id= "studentname" name="studentname" required>
     <span th:errors="*{studentname}" class="error"></span>
 
 <label th:for= "teachername" >Select your child's teacher</label>
 <select th:field="*{teachername}">
+    <option value="space">                   </option>
     <option value="BW">   Britaney Winston</option>
     <option value="CH">   Cristine Hankins</option>
     <option value="ED">   Ed Daughton</option>
@@ -26,6 +32,7 @@
 </select>
 <label th:for= "gradelevel" >Choose Grade Level</label>
     <select th:field="*{gradelevel}">
+        <option value="spac">             </option>
         <option value="K">   Kindergarten</option>
         <option value="1">   1st Grade</option>
         <option value="2">   2nd Grade</option>

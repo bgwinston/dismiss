@@ -13,6 +13,7 @@
 <form method= "Post" th:object="${changetransportation}">
     <label th:for= "transportation" >Transportation</label>
     <select th:field="*{transportation}">
+        <option value="space">           </option>
         <option value="Car Rider">   Car Rider</option>
         <option value="Walker">      Walker</option>
         <option value="Bus Rider">   Bus Rider</option>
@@ -22,10 +23,11 @@
     <br/>
     <label th:for= "transportationchange" >Transportation Change</label>
     <select th:field="*{transportationchange}">
-            <option value="Car Rider">   Car Rider</option>
-            <option value="Walker">      Walker</option>
-            <option value="Bus Rider">   Bus Rider</option>
-            <span th:errors="*{transportationchange}" class="error"></span>
+        <option value="space">         </option>
+        <option value="Car Rider">   Car Rider</option>
+        <option value="Walker">      Walker</option>
+        <option value="Bus Rider">   Bus Rider</option>
+        <span th:errors="*{transportationchange}" class="error"></span>
     </select>
 
     <br/>
