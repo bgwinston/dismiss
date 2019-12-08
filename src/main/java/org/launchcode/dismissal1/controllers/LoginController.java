@@ -41,7 +41,6 @@ public class LoginController {
 
     //Login process form
     @RequestMapping(value = "", method = RequestMethod.POST)
-    @ModelAttribute("user")
     public String loginProcess(Model model) {
             model.addAttribute("message", "Invalid Username");
             model.addAttribute("title", "The Dismissal App");
