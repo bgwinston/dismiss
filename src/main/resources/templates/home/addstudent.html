@@ -14,8 +14,13 @@
 <br/>
 <form method="post" th:object="${student}">
 <label for ="studentname">Student Name</label>
-<input class="form-control" type="text" placeholder="Enter your child's first and last name." id= "studentname" name="studentname" required>
+<br/>
+
+    <input class="form-control" type="text" placeholder="Enter your child's first and last name." id= "studentname" name="studentname" required>
     <span th:errors="*{studentname}" class="error"></span>
+
+<br/>
+<br/>
 
 <label th:for= "teachername" >Select your child's teacher</label>
 <select th:field="*{teachername}">
@@ -30,7 +35,11 @@
     <option value="RG">   Rhonda Grane</option>
     <span th:errors="*{teachername}" class="error"></span>
 </select>
-<label th:for= "gradelevel" >Choose Grade Level</label>
+
+<br/>
+<br/>
+
+    <label th:for= "gradelevel" >Choose Grade Level</label>
     <select th:field="*{gradelevel}">
         <option value="spac">             </option>
         <option value="K">   Kindergarten</option>
