@@ -11,7 +11,7 @@
 <br/>
 <br/>
 <form method="post" th:object="${user}">
-    <label th:for= "username" >Username</label>
+    <label th:for= "username">Username</label>
     <input type="text" placeholder="Enter Username" th:field="*{username}">
     <span th:errors="*{username}" class="error"></span>
     <br/>
