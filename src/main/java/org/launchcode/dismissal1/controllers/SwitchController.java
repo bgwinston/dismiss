@@ -9,11 +9,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Controller
@@ -31,6 +34,15 @@ public class SwitchController {
     @Autowired
     ChangetransportationDao changetransportationDao;
 
+    private static List<String> changetransportation1 = new ArrayList<>();
+
+    @GetMapping
+    public String displayall(Model model){
+        model.addAttribute("changetransportation",changetransportation1);
+        return "home/log";
+    }
+
+
     @RequestMapping(value = "transportation", method = RequestMethod.GET)
     public String change(Model model) {
         model.addAttribute("title", "Transportation Change");
@@ -38,13 +50,13 @@ public class SwitchController {
         return "switch/transportation";
     }
 
-    @RequestMapping(value = "transportationconfirmation", method=RequestMethod.POST)
-    public String early(@ModelAttribute @Valid changetransportation changetransportation, Errors errors, Model model) {
+    @RequestMapping(value = "transportation", method=RequestMethod.POST)
+    public String early(@ModelAttribute @Valid changetransportation newchangetransportation, Errors errors, Model model) {
         if (errors.hasErrors()) {
             model.addAttribute("title", "Transportation Confirmation");
-            return "switch/transportationconfirmation";
+            return "switch/transportation";
         }
-        changetransportationDao.save(changetransportation);
+        changetransportationDao.save(newchangetransportation);
         return "home/log";
     }
 }

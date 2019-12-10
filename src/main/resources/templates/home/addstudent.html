@@ -23,8 +23,8 @@
 <br/>
 
 <label th:for= "teachername" >Select your child's teacher</label>
-<select th:field="*{teachername}">
-    <option value="space">                   </option>
+<select th:field="*{teachername}" required>
+    <option value="space">Select Teacher</option>
     <option value="BW">   Britaney Winston</option>
     <option value="CH">   Cristine Hankins</option>
     <option value="ED">   Ed Daughton</option>
@@ -40,7 +40,7 @@
 <br/>
 
     <label th:for= "gradelevel" >Choose Grade Level</label>
-    <select th:field="*{gradelevel}">
+    <select th:field="*{gradelevel}" required>
         <option value="spac">             </option>
         <option value="K">   Kindergarten</option>
         <option value="1">   1st Grade</option>
