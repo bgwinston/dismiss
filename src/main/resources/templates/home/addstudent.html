@@ -13,10 +13,10 @@
 <br/>
 <br/>
 <form method="post" th:object="${student}">
-<label for ="studentname">Student Name</label>
+<label th:for ="studentname">Student Name</label>
 <br/>
 
-    <input class="form-control" type="text" placeholder="Enter your child's first and last name." id= "studentname" name="studentname" required>
+    <input class="form-control"  placeholder="Enter your child's first and last name."  th:field ="*{studentname}" required>
     <span th:errors="*{studentname}" class="error"></span>
 
 <br/>

@@ -18,43 +18,44 @@ import java.util.ArrayList;
 @Controller
 @RequestMapping("home")
 public class addstudentController {
-        @Autowired
-        UserDao userDao;
+    @Autowired
+    UserDao userDao;
 
-        @Autowired
-        StudentDao studentDao;
+    @Autowired
+    StudentDao studentDao;
 
-        @Autowired
-        EarlyDao earlyDao;
+    @Autowired
+    EarlyDao earlyDao;
 
-        @Autowired
-        ChangetransportationDao changetransportationDao;
+    @Autowired
+    ChangetransportationDao changetransportationDao;
 
-        static ArrayList<String> log = new ArrayList<>();
+    static ArrayList<String> addstudent = new ArrayList<>();
 
     @RequestMapping(value = "sconfirmation")
     public String log(Model model) {
         model.addAttribute("title", "Confirmation");
-        //model.addAttribute("early", earlyDao.findAllById(dismiss<  >));
+        model.addAttribute("student", addstudent);
         return "home/sconfirmation";
     }
-        //Display of Form
-    @RequestMapping(value = "addstudent", method = RequestMethod.GET)
-     public String displayaddstudentForm(Model model) {
+    //Display of Form
+    @GetMapping(value = "addstudent")
+    public String displayaddstudentForm(Model model) {
         model.addAttribute("title", "Add Student");
         model.addAttribute("student", new student());
         return "home/addstudent";
-        }
+    }
 
-        //Process Form
-     @RequestMapping(value = "addstudent", method = RequestMethod.POST)
-     public String addstudentForm(@ModelAttribute @Valid student student, Errors errors, @PathVariable ("studentname")String studentname) {
+    //Process Form
+    @PostMapping(value = "addstudent")
+    public String addstudentForm(@ModelAttribute @Valid student newstudent, Errors errors, Model model,@RequestParam String studentname) {
         if (errors.hasErrors()) {
+            model.addAttribute("title", "Add Student");
             return "home/addstudent";
-            }
-        studentDao.save(student);
-        return "home/sconfirmation";
         }
+        studentDao.save(newstudent);
+        return "home/sconfirmation";
+    }
 
     }
 
