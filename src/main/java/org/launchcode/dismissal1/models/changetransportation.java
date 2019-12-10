@@ -62,9 +62,7 @@ public class changetransportation {
         return transportationchange;
         }
 
-    public void setTransportationchange(String transportationchange) {
-        this.transportationchange = transportationchange;
-        }
+    public void setTransportationchange(String transportationchange) { this.transportationchange = transportationchange; }
 
     public String getDatec() {
         return datec;

@@ -33,14 +33,12 @@ public class earlyController {
     @Autowired
     ChangetransportationDao changetransportationDao;
 
-    static ArrayList<String> early = new ArrayList<>();
 
     @RequestMapping(value=" ", method=RequestMethod.GET)
     public String displayall(Model model){
         model.addAttribute("title","All Early Pickups");
         model.addAttribute("early", earlyDao.findAll());
-
-        return "early/earlyconfirmation";
+        return "early/confirmation";
     }
 
     //Display of Form

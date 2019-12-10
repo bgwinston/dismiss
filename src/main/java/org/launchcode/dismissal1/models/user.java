@@ -23,9 +23,9 @@ public class user {
     @Size(min = 3, max = 20)
     private String password;
 
-    @OneToMany
-    @JoinColumn(name = "user_id")
-    private List<student>students=new ArrayList<>();
+    //@OneToMany
+    //@JoinColumn(name = "user_id")
+    //private List<student>students=new ArrayList<>();
 
 
     public user(String username, String password) {

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head th:replace="fragments :: head"></head>
+<head th:replace="fragments :: head">
 
 
 <body>
 <h1 th:text="${title}">Default Title</h1>
 <nav th:replace="fragments :: navigation"></nav>
 
-<form method= "Post" th:object="${changetransportation}">
+<form method= "post" th:object="${changetransportation}">
     <label th:for= "transportation" >Transportation</label>
     <select th:field="*{transportation}">
         <option value="space">           </option>

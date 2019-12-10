@@ -52,7 +52,6 @@ public class LoginController {
     @RequestMapping(value = "log")
     public String log(Model model) {
         model.addAttribute("title", "Log");
-        //model.addAttribute("early", earlyDao.findAllById(dismiss<  >));
         return "home/log";
     }
 

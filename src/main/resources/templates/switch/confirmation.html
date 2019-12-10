@@ -11,21 +11,22 @@
 
 
 
-<p th:unless="${cheeses} and ${cheeses.size()}">no cheese :(</p>
-
+<!----<p th:unless="${changetransportation} and ${changetransportations.size()}">no cheese :(</p>---->
 
 <table class="table">
 
     <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Type</th>
+        <th>From</th>
+        <th>To</th>
+        <th>Dates</th>
+        <th>Notes</th>
+
     </tr>
 
-    <tr th:each="cheese : ${cheeses}">
-        <td th:text="${cheese.name}"></td>
-        <td th:text="${cheese.description}"></td>
-        <td th:text="${cheese.type.name}"></td>
+    <tr th:each="early : ${earlys}">
+        <td th:text="${early.timeofpickup}"></td>
+        <td th:text="${early.dateofpickup}"></td>
+        <td th:text="${early.notes}"></td>
     </tr>
 
 </table>

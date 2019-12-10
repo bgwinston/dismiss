@@ -30,12 +30,10 @@ public class addstudentController {
     @Autowired
     ChangetransportationDao changetransportationDao;
 
-    static ArrayList<String> addstudent = new ArrayList<>();
 
     @RequestMapping(value = "sconfirmation")
     public String log(Model model) {
         model.addAttribute("title", "Confirmation");
-        model.addAttribute("student", addstudent);
         return "home/sconfirmation";
     }
     //Display of Form
@@ -57,6 +55,5 @@ public class addstudentController {
         return "home/sconfirmation";
     }
 
-    }
+}
 
-///validate drown down///

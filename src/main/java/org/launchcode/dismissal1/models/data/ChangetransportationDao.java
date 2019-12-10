@@ -6,8 +6,8 @@ import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
 
-@Transactional
-@Repository
-public interface ChangetransportationDao extends CrudRepository<changetransportation,Integer> {
+    @Transactional
+    @Repository
+    public interface ChangetransportationDao extends CrudRepository<changetransportation,Integer> {
 
 }
