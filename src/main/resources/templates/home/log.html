@@ -9,20 +9,26 @@
 <h1 th:text="${title}">Default Title</h1>
 <nav th:replace="fragments :: navigation"></nav>
 
-<p th:unless="${Log} and ${Log.size()}">No History to display</p>
+
+
+<p th:unless="${cheeses} and ${cheeses.size()}">no cheese :(</p>
+
+
 <table class="table">
+
     <tr>
-        <th> Dismissal Method</th>
-        <th> Date</th>
-        <th>Note</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Type</th>
     </tr>
-    <!----<tr th:each= "log : ${logs}">
-        <td th:text="$log.key}"></td>
-        <td th:text="${log.value}"></td>
-    </tr> ---->
+
+    <tr th:each="cheese : ${cheeses}">
+        <td th:text="${cheese.name}"></td>
+        <td th:text="${cheese.description}"></td>
+        <td th:text="${cheese.type.name}"></td>
+    </tr>
+
 </table>
 
-    <li th:each="log : ${Log}" th:text="${log}"></li>
-</ul>
 </body>
 </html>

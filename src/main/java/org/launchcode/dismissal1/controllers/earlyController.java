@@ -33,7 +33,15 @@ public class earlyController {
     @Autowired
     ChangetransportationDao changetransportationDao;
 
-    static ArrayList<String> log = new ArrayList<>();
+    static ArrayList<String> early = new ArrayList<>();
+
+    @RequestMapping(value=" ", method=RequestMethod.GET)
+    public String displayall(Model model){
+        model.addAttribute("title","All Early Pickups");
+        model.addAttribute("early", earlyDao.findAll());
+
+        return "early/earlyconfirmation";
+    }
 
     //Display of Form
     @RequestMapping(value = "release", method = RequestMethod.GET)
@@ -46,11 +54,12 @@ public class earlyController {
 
     //Process Form
     @RequestMapping(value = "release", method = RequestMethod.POST)
-    public String processearlyForm(@ModelAttribute @Valid early early, Errors errors) {
+    public String processearlyForm(@ModelAttribute @Valid early early, Errors errors, Model model) {
         if (errors.hasErrors()) {
+            model.addAttribute("title", "Early Pickup");
             return "early/release";
         }
         earlyDao.save(early);
-        return "early/release";
+        return "early/earlyconfirmation";
     }
 }

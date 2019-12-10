@@ -39,6 +39,7 @@ public class SwitchController {
     @GetMapping
     public String displayall(Model model){
         model.addAttribute("changetransportation",changetransportation1);
+        model.addAttribute("changetransportation", changetransportationDao.findAll());
         return "home/log";
     }
 
@@ -57,6 +58,7 @@ public class SwitchController {
             return "switch/transportation";
         }
         changetransportationDao.save(newchangetransportation);
-        return "home/log";
+        return "switch/transportationconfirmation";
     }
+
 }
