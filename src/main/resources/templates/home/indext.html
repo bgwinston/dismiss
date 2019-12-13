@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<nav th:replace="fragments :: navigation"></nav>
+
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+
+<h1 th:text="${title}">Default Title</h1>
+
+<p th:unless="${changetransportation} and ${changetransportation.size()}">No record of transportation change </p>
+
+<table class="table">
+
+    <tr>
+        <th>Current</th>
+        <th>Change</th>
+        <th>Date</th>
+        <th>Note</th>
+    </tr>
+
+    <tr th:each="changetransportation : ${changetransportation}">
+        <td th:text="${changetransportation.transportation}"></td>
+        <td th:text="${changetransportation.transportationchange}"></td>
+        <td th:text="${changetransportation.datec}"></td>
+        <td th:text="${changetransportation.notes1}"></td>
+    </tr>
+
+</table>
+
+<a href="/switch/transportation">Submit transportation change! </a>
+
+
+</body>
+</html>

@@ -51,7 +51,7 @@ public class LoginController {
         return "home/login";
     }
 
-    //Display history of pick ups and transportation changes
+    //Display history of pick ups
     @RequestMapping(value = "index")
     public String log(Model model) {
         model.addAttribute("title", "Early Pick Up Log");
@@ -59,6 +59,13 @@ public class LoginController {
         return "home/index";
     }
 
+    //Display history of transportation changes
+    @RequestMapping(value = "indext")
+    public String log1(Model model) {
+        model.addAttribute("title", "Change of Transportation Log");
+        model.addAttribute("early", changetransportationDao.findAll());
+        return "home/indext";
+    }
     //New Account form
     @RequestMapping(value = "newaccount", method = RequestMethod.GET)
     public String account(Model model) {
