@@ -1,34 +1,34 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns="http://www.w3.org/1999/html">
 <head th:replace="fragments :: head">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 </head>
-
-<body class="container">
-<h1 th:text="${title}">Default Title</h1>
 <nav th:replace="fragments :: navigation"></nav>
 
+<body>
+<div class="container">
+    <div><h3 th:unless="${early}">No early pickup history.</h3>
 
+    <br/>
+    <br/>
+    <br/>
+        <h2>Record of early releases</h2>
+        <table class="table">
+            <tr>
+                <th>Time</th>
+                <th>Date</th>
+                <th>Note</th>
+            </tr>
 
-<p th:unless="${earlys} and ${earlys.size()}">no cheese :(</p>
+            <tr th:each="earlypickup : ${early}" th:text="${early}">
+                <!--<td th:text="${earlypickup.timeofpickup}"></td>
+                <td th:text="${earlypickup.dateofpickup}"></td>
+                <td th:text="${earlypickup.notes}"></td>-->
+            </tr>
 
-
-<table class="table">
-
-    <tr>
-        <th>Time</th>
-        <th>Date</th>
-        <th>Note</th>
-    </tr>
-
-    <tr th:each="early : ${earlys}">
-        <td th:text="${early.timeofpickup}"></td>
-        <td th:text="${early.dateofpickup}"></td>
-        <td th:text="${early.notes}"></td>
-    </tr>
-
-</table>
-
+        </table>
+    </div>
+</div>
 </body>
 </html>

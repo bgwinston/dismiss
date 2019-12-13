@@ -21,24 +21,16 @@ import java.util.ArrayList;
 @Controller
 @RequestMapping("early")
 public class earlyController {
-    @Autowired
-    UserDao userDao;
 
-    @Autowired
-    StudentDao studentDao;
 
     @Autowired
-    EarlyDao earlyDao;
+    private EarlyDao earlyDao;
 
-    @Autowired
-    ChangetransportationDao changetransportationDao;
-
-
-    @RequestMapping(value=" ", method=RequestMethod.GET)
+    @RequestMapping(value="earlyconfirmation", method=RequestMethod.GET)
     public String displayall(Model model){
         model.addAttribute("title","All Early Pickups");
         model.addAttribute("early", earlyDao.findAll());
-        return "early/confirmation";
+        return "early/earlyconfirmation";
     }
 
     //Display of Form
@@ -58,6 +50,6 @@ public class earlyController {
             return "early/release";
         }
         earlyDao.save(early);
-        return "early/earlyconfirmation";
+        return"redirect:early/earlyconfirmation";
     }
 }

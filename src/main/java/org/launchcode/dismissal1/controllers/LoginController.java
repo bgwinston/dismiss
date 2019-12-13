@@ -1,5 +1,5 @@
+
 package org.launchcode.dismissal1.controllers;
-import org.apache.tomcat.jni.User;
 import org.launchcode.dismissal1.models.data.ChangetransportationDao;
 import org.launchcode.dismissal1.models.data.EarlyDao;
 import org.launchcode.dismissal1.models.data.StudentDao;
@@ -39,20 +39,24 @@ public class LoginController {
         return "home/login";
     }
 
+    //Get User object from data,
+//compare User object( Password) to database(password)
+//If passwords match then return log template
+//else return login page with error message
     //Login process form
     @RequestMapping(value = "", method = RequestMethod.POST)
     public String loginProcess(Model model) {
-            model.addAttribute("message", "Invalid Username");
-            model.addAttribute("title", "The Dismissal App");
-
+        model.addAttribute("message", "Invalid Username");
+        model.addAttribute("title", "The Dismissal App");
         return "home/login";
     }
 
     //Display history of pick ups and transportation changes
-    @RequestMapping(value = "log")
+    @RequestMapping(value = "index")
     public String log(Model model) {
-        model.addAttribute("title", "Log");
-        return "home/log";
+        model.addAttribute("title", "Early Pick Up Log");
+        model.addAttribute("early", earlyDao.findAll());
+        return "home/index";
     }
 
     //New Account form
@@ -74,5 +78,8 @@ public class LoginController {
         return "home/log";
 
     }
-    }
+}
+
+
+
 

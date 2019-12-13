@@ -2,31 +2,31 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+    <title th:text="${title}">Title</title>
 </head>
 
 <body class="container">
-<h1 th:text="${title}">Default Title</h1>
+<h1 th:text="${title}"></h1>
 <nav th:replace="fragments :: navigation"></nav>
 
-
-
-<!----<p th:unless="${changetransportation} and ${changetransportations.size()}">no cheese :(</p>---->
+<h3 th:unless="${changeTrans} and ${changeTrans.size()}">No switch history. </h3>
 
 <table class="table">
 
     <tr>
         <th>From</th>
         <th>To</th>
-        <th>Dates</th>
+        <th>Date</th>
         <th>Notes</th>
 
     </tr>
+<!---th:each- we want thymeleaf to repeat the element in the tag and specify what we want it to do with what it is repeating--->
+    <tr th:each="changetransportation : ${changeTrans}" th:text="${changeTrans}">
+        <!---<td th:text="${changetransportation.transportation}"></td>
+        <td th:text="${changetransportation.transportationchange}"></td>
+        <td th:text="${changetransportation.datec}"></td>
+        <td th:text="${changetransportation.notes1}"></td>-->
 
-    <tr th:each="early : ${earlys}">
-        <td th:text="${early.timeofpickup}"></td>
-        <td th:text="${early.dateofpickup}"></td>
-        <td th:text="${early.notes}"></td>
     </tr>
 
 </table>

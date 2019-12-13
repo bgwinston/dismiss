@@ -25,7 +25,7 @@ public class changetransportation {
     private String datec;
 
     @NotNull
-    @Size(min = 3, max=25, message= "Write a note for your records.")
+    @Size(min = 3, max=200, message= "Write a note for your records.")
     private String notes1;
 
 //@Size(min = 3)

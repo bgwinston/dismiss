@@ -28,8 +28,8 @@ public class student {
     private String gradelevel;
 
 
-    //@ManyToOne (mapped by = )
-   // private user user;
+    //@ManyToOne
+    //rivate user user;
 
     public student(String studentname, String teachername, String gradelevel) {
         this.studentname = studentname;

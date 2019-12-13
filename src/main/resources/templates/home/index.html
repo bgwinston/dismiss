@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<nav th:replace="fragments :: navigation"></nav>
+
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+
+<h1 th:text="${title}">Default Title</h1>
+
+<p th:unless="${early} and ${early.size()}">No record of early pickup. </p>
+
+<table class="table">
+
+    <tr>
+        <th>Time of day</th>
+        <th>Date</th>
+        <th>Note</th>
+
+    </tr>
+
+    <tr th:each="early : ${early}">
+        <td th:text="${early.timeofpickup}"></td>
+        <td th:text="${early.dateofpickup}"></td>
+        <td th:text="${early.notes}"></td>
+    </tr>
+
+</table>
+
+<a href="/early/release">Submit early release for today! </a>
+
+
+</body>
+</html>

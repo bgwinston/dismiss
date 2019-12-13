@@ -13,15 +13,15 @@
 
 <h2>Your School: Pershing Elementary</h2>
 
-<form>
+<form th:object="${user}">
     <div class="form-group">
         <label for="username1">Username</label>
-        <input type="text" class="form-control" id="username1" aria-describedby="usernameHelp" required>
+        <input type="text" class="form-control" id="username1" aria-describedby="usernameHelp" th:field="${username}">
         <small id="usernameHelp" class="form-text text-muted">Username will only be used for this site.</small>
     </div>
     <div class="form-group">
         <label for="password1">Password</label>
-        <input type="password" class="form-control" id="password1" required>
+        <input type="password" class="form-control" id="password1" required th:field="${password}">
     </div>
     <button type="submit" class="btn btn-primary">Login</button>
 </form>

@@ -4,18 +4,15 @@ package org.launchcode.dismissal1.models;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.ArrayList;
-import java.util.List;
 
-@Entity
-public class user {
+@Entity //Database creation//
+public class user { //Database fields//
     //computer generated id
     @Id
     @GeneratedValue
     private int id;
-    //table columns
 
-
+    @NotNull
     @Size(min = 3, max = 20)
     private String username;
 

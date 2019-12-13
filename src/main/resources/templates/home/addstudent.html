@@ -13,35 +13,35 @@
 <br/>
 <br/>
 <form method="post" th:object="${student}">
-<label th:for ="studentname">Student Name</label>
-<br/>
+    <label th:for ="studentname">Student Name</label>
+    <br/>
 
     <input class="form-control"  placeholder="Enter your child's first and last name."  th:field ="*{studentname}" required>
     <span th:errors="*{studentname}" class="error"></span>
 
-<br/>
-<br/>
+    <br/>
+    <br/>
 
-<label th:for= "teachername" >Select your child's teacher</label>
-<select th:field="*{teachername}" required>
-    <option value="space">Select Teacher</option>
-    <option value="BW">   Britaney Winston</option>
-    <option value="CH">   Cristine Hankins</option>
-    <option value="ED">   Ed Daughton</option>
-    <option value="CB">   Chris Brown</option>
-    <option value="SD">   Shane Danny</option>
-    <option value="JC">   Jessica Clark</option>
-    <option value="DT">   Dianna Turnner</option>
-    <option value="RG">   Rhonda Grane</option>
-    <span th:errors="*{teachername}" class="error"></span>
-</select>
+    <label th:for= "teachername" >Select your child's teacher</label>
+    <select th:field="*{teachername}" required>
+        <option value="space">           </option>
+        <option value="BW">   Britaney Winston</option>
+        <option value="CH">   Cristine Hankins</option>
+        <option value="ED">   Ed Daughton</option>
+        <option value="CB">   Chris Brown</option>
+        <option value="SD">   Shane Danny</option>
+        <option value="JC">   Jessica Clark</option>
+        <option value="DT">   Dianna Turnner</option>
+        <option value="RG">   Rhonda Grane</option>
+        <span th:errors="*{teachername}" class="error"></span>
+    </select>
 
-<br/>
-<br/>
+    <br/>
+    <br/>
 
     <label th:for= "gradelevel" >Choose Grade Level</label>
     <select th:field="*{gradelevel}" required>
-        <option value="spac">             </option>
+        <option value="space">             </option>
         <option value="K">   Kindergarten</option>
         <option value="1">   1st Grade</option>
         <option value="2">   2nd Grade</option>

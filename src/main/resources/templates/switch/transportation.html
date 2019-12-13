@@ -2,15 +2,22 @@
 
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<title th:text="${title}"></title>
 
+</head>
 
 <body>
-<h1 th:text="${title}">Default Title</h1>
+<h1 th:text="${title}"></h1>
 <nav th:replace="fragments :: navigation"></nav>
+<br/>
+<br/>
+<br/>
+<br/>
 
 <form method= "post" th:object="${changetransportation}">
-    <label th:for= "transportation" >Transportation</label>
-    <select th:field="*{transportation}">
+    <label th:for= "transportation" >Original Transportation</label>
+    <select th:field="*{transportation}" required>
         <option value="space">           </option>
         <option value="Car Rider">   Car Rider</option>
         <option value="Walker">      Walker</option>
@@ -20,7 +27,7 @@
     <br/>
     <br/>
     <label th:for= "transportationchange" >Transportation Change</label>
-    <select th:field="*{transportationchange}">
+    <select th:field="*{transportationchange}" required>
         <option value="space">         </option>
         <option value="Car Rider">   Car Rider</option>
         <option value="Walker">      Walker</option>
@@ -38,9 +45,8 @@
     <label th:for="notes1">Leave a Note</label>
     <input type="text" placeholder="Write a note" th:field="*{notes1}">
     <span th:errors="*{notes1}" class="error"></span>
-    <br/>
-    <input type="submit" value="Submit change"/>
-    </form>
+     <br/>
+    <button type="submit" class="btn btn-success">Submit</button>
 </form>
 
 </body>

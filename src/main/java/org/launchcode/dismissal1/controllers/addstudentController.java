@@ -18,17 +18,10 @@ import java.util.ArrayList;
 @Controller
 @RequestMapping("home")
 public class addstudentController {
-    @Autowired
-    UserDao userDao;
+
 
     @Autowired
-    StudentDao studentDao;
-
-    @Autowired
-    EarlyDao earlyDao;
-
-    @Autowired
-    ChangetransportationDao changetransportationDao;
+    private StudentDao studentDao;
 
 
     @RequestMapping(value = "sconfirmation")
