@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<nav th:replace="fragments :: navigation"></nav>
+
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+
+<h1 th:text="${title}">Default Title</h1>
+
+<p th:unless="${allstudents} and ${allstudents.size()}">No students </p>
+
+<table class="table">
+
+    <tr>
+        <th>Student Name</th>
+        <th>Teacher Name</th>
+        <th>Grade Level</th>
+
+    </tr>
+
+    <tr th:each="allstudents : ${student}">
+        <td th:text="${allstudents.studentname}"></td>
+        <td th:text="${allstudents.teachername}"></td>
+        <td th:text="${allstudents.gradelevel}"></td>
+    </tr>
+
+</table>
+
+<a href="/home/addstudent">Add a student </a>
+
+
+</body>
+</html>

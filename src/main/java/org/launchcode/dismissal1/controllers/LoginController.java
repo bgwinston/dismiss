@@ -59,6 +59,15 @@ public class LoginController {
         return "home/index";
     }
 
+//Show all students.
+    @RequestMapping(value = "allStudents")
+    public String showallstudentindex(Model model) {
+        model.addAttribute("title", "All Students");
+        model.addAttribute("", studentDao.findAll());
+        return "home/allStudents";
+    }
+
+
     //Display history of transportation changes
     @RequestMapping(value = "indext")
     public String log1(Model model) {
@@ -66,6 +75,7 @@ public class LoginController {
         model.addAttribute("early", changetransportationDao.findAll());
         return "home/indext";
     }
+
     //New Account form
     @RequestMapping(value = "newaccount", method = RequestMethod.GET)
     public String account(Model model) {
