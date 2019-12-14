@@ -19,6 +19,13 @@ public class SwitchController {
     @Autowired
     private ChangetransportationDao changetransportationDao;
 
+    //Display history of transportation changes
+    @RequestMapping(value = "indext")
+    public String log1(Model model) {
+        model.addAttribute("title", "Change of Transportation Log");
+        model.addAttribute("early", changetransportationDao.findAll());
+        return "switch/indext";
+    }
 
     @RequestMapping(value= "")
     public String displayall(Model model) {

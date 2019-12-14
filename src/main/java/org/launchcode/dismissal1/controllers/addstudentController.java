@@ -23,6 +23,17 @@ public class addstudentController {
     @Autowired
     private StudentDao studentDao;
 
+    //Show all students.
+    @RequestMapping(value = "allStudents")
+    public String showallstudentindex(Model model) {
+        model.addAttribute("title", "All Students");
+        model.addAttribute("", studentDao.findAll());
+        return "home/allStudents";
+    }
+
+    //deletestudent
+    //@RequestMapping(value="allStudents")
+    //public
 
     @RequestMapping(value = "sconfirmation")
     public String log(Model model) {
@@ -47,6 +58,7 @@ public class addstudentController {
         studentDao.save(newstudent);
         return "home/sconfirmation";
     }
+
 
 }
 

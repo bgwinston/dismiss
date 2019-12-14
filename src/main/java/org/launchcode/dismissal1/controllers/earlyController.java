@@ -26,11 +26,12 @@ public class earlyController {
     @Autowired
     private EarlyDao earlyDao;
 
-    @RequestMapping(value="earlyconfirmation", method=RequestMethod.GET)
-    public String displayall(Model model){
-        model.addAttribute("title","All Early Pickups");
+    //Display history of pick ups
+    @RequestMapping(value = "index")
+    public String log(Model model) {
+        model.addAttribute("title", "Early Pick Up Log");
         model.addAttribute("early", earlyDao.findAll());
-        return "early/earlyconfirmation";
+        return "early/index";
     }
 
     //Display of Form
