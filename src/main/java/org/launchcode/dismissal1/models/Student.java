@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-public class student {
+public class Student {
     //@ID tells hibernate this is the primary key
     @Id
     //@Generate id for us
@@ -29,15 +29,15 @@ public class student {
 
 
     //@ManyToOne
-    //rivate user user;
+    //rivate User User;
 
-    public student(String studentname, String teachername, String gradelevel) {
+    public Student(String studentname, String teachername, String gradelevel) {
         this.studentname = studentname;
         this.teachername=teachername;
         this.gradelevel=gradelevel;
     }
 
-    public student() {
+    public Student() {
 
     }
 

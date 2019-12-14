@@ -6,7 +6,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity //Database creation//
-public class user { //Database fields//
+public class User { //Database fields//
     //computer generated id
     @Id
     @GeneratedValue
@@ -22,15 +22,15 @@ public class user { //Database fields//
 
     //@OneToMany
     //@JoinColumn(name = "user_id")
-    //private List<student>students=new ArrayList<>();
+    //private List<Student>students=new ArrayList<>();
 
 
-    public user(String username, String password) {
+    public User(String username, String password) {
         this.username = username;
         this.password = password;
     }
 
-    public user() {
+    public User() {
     }
 
     public int getId() {

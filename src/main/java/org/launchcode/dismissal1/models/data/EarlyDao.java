@@ -1,14 +1,13 @@
 package org.launchcode.dismissal1.models.data;
 
-import org.launchcode.dismissal1.models.early;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.launchcode.dismissal1.models.Early;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 @Transactional
-public interface EarlyDao extends CrudRepository<early,Integer> {
+public interface EarlyDao extends CrudRepository<Early,Integer> {
 
     }
 

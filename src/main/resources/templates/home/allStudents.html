@@ -15,7 +15,7 @@
 
 <h1 th:text="${title}">Default Title</h1>
 
-<p th:unless="${allstudents} and ${allstudents.size()}">No students </p>
+<p th:unless="${student} and ${student.size()}">No students </p>
 
 <table class="table">
 
@@ -26,10 +26,10 @@
 
     </tr>
 
-    <tr th:each="allstudents : ${student}">
-        <td th:text="${allstudents.studentname}"></td>
-        <td th:text="${allstudents.teachername}"></td>
-        <td th:text="${allstudents.gradelevel}"></td>
+    <tr th:each="student : ${student}">
+        <td th:text="${student.studentname}"></td>
+        <td th:text="${student.teachername}"></td>
+        <td th:text="${student.gradelevel}"></td>
     </tr>
 
 </table>

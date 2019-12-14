@@ -7,7 +7,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-public class changetransportation {
+public class Changetransportation {
     @Id
     @GeneratedValue
     private int id;
@@ -34,7 +34,7 @@ public class changetransportation {
 //DateTimeFormatter forsubmission = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
 //private String formattedDate = submission.format(forsubmission);
 
-    public changetransportation(String transportation, String transportationchange, String datec, String notes1) {
+    public Changetransportation(String transportation, String transportationchange, String datec, String notes1) {
         this.transportation = transportation;
         this.transportationchange=transportationchange;
         this.datec = datec;
@@ -42,7 +42,7 @@ public class changetransportation {
         //this.formattedDate = formattedDate;
         }
 
-    public changetransportation() {
+    public Changetransportation() {
 
     }
 

@@ -8,7 +8,7 @@ import javax.validation.constraints.Size;
 
 //Early Pick Up table
 @Entity
-public class early {
+public class Early {
     @Id
     @GeneratedValue
     private int id;
@@ -25,14 +25,14 @@ public class early {
     @Size(min = 1, message= "Write a note for your records.")
     private String notes;
 
-    public early(String timeofpickup, String dateofpickup, String notes) {
+    public Early(String timeofpickup, String dateofpickup, String notes) {
         this.timeofpickup = timeofpickup;
         this.dateofpickup = dateofpickup;
         this.notes = notes;
 
     }
 
-    public early(){
+    public Early(){
     }
 
     public String getTimeofpickup() {
