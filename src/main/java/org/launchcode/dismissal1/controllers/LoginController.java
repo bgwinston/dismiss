@@ -34,10 +34,11 @@ public class LoginController {
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String login(Model model) {
         model.addAttribute("title", "The Dismissal App");
+        model.addAttribute(new User());
         return "home/login";
     }
 
-    //Get User object from data,
+//Get User object from data,
 //compare User object( Password) to database(password)
 //If passwords match then return log template
 //else return login page with error message
@@ -46,7 +47,7 @@ public class LoginController {
     public String loginProcess(Model model) {
         model.addAttribute("message", "Invalid Username");
         model.addAttribute("title", "The Dismissal App");
-        return "home/Login";
+        return "home/login";
     }
 
     //New Account form

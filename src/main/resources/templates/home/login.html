@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title h1 th:text="${title}">Title</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>
 
 
 </head>
@@ -16,12 +17,12 @@
 <form th:object="${user}">
     <div class="form-group">
         <label for="username1">Username</label>
-        <input type="text" class="form-control" id="username1" aria-describedby="usernameHelp" th:field="${username}">
+        <input type="text" class="form-control" id="username1" aria-describedby="usernameHelp" th:field="*{username}"/>
         <small id="usernameHelp" class="form-text text-muted">Username will only be used for this site.</small>
     </div>
     <div class="form-group">
         <label for="password1">Password</label>
-        <input type="password" class="form-control" id="password1" required th:field="${password}">
+        <input type="password" class="form-control" id="password1" required th:field="*{password}"/>
     </div>
     <button type="submit" class="btn btn-primary">Login</button>
 </form>
@@ -31,9 +32,9 @@
 
 </form>
 
-<form action="/home/newaccount" method="Post"/>
-    <button type="submit">No account? Sign up here!</button>
-</form>
+<a href="/home/newaccount">
+    No account? Sign up here!
+</a>
 
 </body>
 </html>
