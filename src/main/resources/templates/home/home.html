@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
+<nav th:replace="fragments :: navigation"></nav>
+
+<h2 Hello th:field="*{username}"></h2>
+
+<a href="/early/earlyconfirmation" method="Get" >
+    View early release history!
+</a>
+<br/>
+<br/>
+<br/>
+
+<a href="/switch/index" method="Get" >
+    View transportation switch log!
+</a>
+
+</body>
+</html>
