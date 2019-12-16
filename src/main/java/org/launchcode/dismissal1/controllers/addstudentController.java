@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("home")
+@RequestMapping("")
 public class addstudentController {
 
 
@@ -48,12 +48,17 @@ public class addstudentController {
     public String addstudentForm(@ModelAttribute @Valid Student newstudent, Errors errors, Model model, @RequestParam String studentname) {
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add Student");
+            model.addAttribute("Student", new Student());
             return "home/addstudent";
         }
         studentDao.save(newstudent);
-        return "home/sconfirmation";
+        return "home/allStudents";
     }
-
-
+    //delete student
+    @GetMapping("delete")
+    public String displaydeletestudentform(Model model) {
+        model.addAttribute("title", "Remove Student");
+        model.addAttribute("students",studentDao.findAll());
+        return"home/delete";
+    }
 }
-

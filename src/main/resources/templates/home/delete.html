@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/"><head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<nav th:replace="fragments :: navigation"></nav>
+
+</br>
+</br>
+</br>
+<h1 th:text="${title}">Default Title</h1>
+</br>
+</br>
+<form method="post">
+    <th:block th:each="student :${students}">
+      <div class="form-group">
+      <label>
+        <span th:text="${student.studentname}"></span>
+        <input type="checkbox" name="studentids" class="form-control">
+      </label>
+      </div>
+    </th:block>
+
+    <input type="submit" value="Delete" class="btn btn-danger">
+
+</form>
+</head>
+
+</body>
+</html>
