@@ -2,12 +2,10 @@ package org.launchcode.dismissal1.models;
 
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 public class Student {
@@ -27,9 +25,10 @@ public class Student {
     @NotNull
     private String gradelevel;
 
-
-    //@ManyToOne
-    //rivate User User;
+    @ManyToMany
+    private List<Changetransportation> changetransportations;
+    @ManyToMany
+    private List<Early>early1;
 
     public Student(String studentname, String teachername, String gradelevel) {
         this.studentname = studentname;
@@ -40,6 +39,8 @@ public class Student {
     public Student() {
 
     }
+    public void addItem(Changetransportation item) {changetransportations.add(item);}
+    public void addIteme(Early item1) {early1.add(item1);}
 
     public int getId() {
         return id;

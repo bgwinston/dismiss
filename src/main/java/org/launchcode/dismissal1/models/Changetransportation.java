@@ -3,8 +3,10 @@ package org.launchcode.dismissal1.models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 public class Changetransportation {
@@ -27,6 +29,9 @@ public class Changetransportation {
     @NotNull
     @Size(min = 3, max=200, message= "Write a note for your records.")
     private String notes1;
+
+    @ManyToMany (mappedBy = "changetransportations")
+    private List<Student> students;
 
 //@Size(min = 3)
 //format of date and time of submission
