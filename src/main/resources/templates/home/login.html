@@ -13,11 +13,14 @@
 <h1 th:text="${title}">Default Title</h1>
 
 <h2>Your School: Pershing Elementary</h2>
+<ul>
+    <li th:each="err : ${#fields.errors('user')}" th:text="${err}" />
+</ul>
 
-<form th:object="${user}">
-    <div class="form-group">
+<form th:object="${user}" method="post">
+    <div class="form-group" >
         <label for="username1">Username</label>
-        <input type="text" class="form-control" id="username1" aria-describedby="usernameHelp" th:field="*{username}"/>
+        <input type="text" class="form-control" id="username1" aria-describedby="usernameHelp" required th:field="*{username}"/>
         <small id="usernameHelp" class="form-text text-muted">Username will only be used for this site.</small>
     </div>
     <div class="form-group">
@@ -28,13 +31,10 @@
 </form>
 <br/>
 <br/>
-<br/>
 
 </form>
 
-<a href="/home/newaccount">
-    No account? Sign up here!
-</a>
+<a href="/newaccount">No account? Sign up here!</a>
 
 </body>
 </html>

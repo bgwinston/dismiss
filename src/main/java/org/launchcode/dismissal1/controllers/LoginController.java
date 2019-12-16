@@ -37,8 +37,15 @@ public class LoginController {
 
     @RequestMapping(value="home")
     public String log(Model model) {
-        model.addAttribute("title", "Actions");
+        model.addAttribute("title", "Transportation Records");
         return "home/home";
+    }
+    // Login Form Display
+    @RequestMapping(value = "login", method = RequestMethod.GET)
+    public String login(Model model) {
+        model.addAttribute("title", "The Dismissal App");
+        model.addAttribute(new User());
+        return "home/login";
     }
 
     //New Account form
