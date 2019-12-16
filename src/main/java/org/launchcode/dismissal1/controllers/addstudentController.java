@@ -41,7 +41,14 @@ public class addstudentController {
             return "home/addstudent";
         }
         studentDao.save(newstudent);
-        return "home/allStudents";
+        return "home/page";
+    }
+
+    @GetMapping(value="page")
+    public String studentpageForm(Model model){
+        model.addAttribute("title","Your Log");
+        model.addAttribute("student", new Student());
+        return"home/page";
     }
     //delete student
     @GetMapping("delete")
@@ -55,9 +62,9 @@ public class addstudentController {
     //Selected student found in database
     //Student removed from database
     @PostMapping("delete")
-    public String processdeletestudentform (@ModelAttribute Student student){
-        if (studentDao.findById(student.getId()).equals(student.getId())){
-            studentDao.delete(student);
+    public String processdeletestudentform (@RequestParam int[] studentids) {
+        for(int studentid : studentids) {
+            studentDao.deleteById(studentid);
         }
         return "redirect:allStudents";
     }
