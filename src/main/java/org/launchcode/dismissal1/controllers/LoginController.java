@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("")
+@RequestMapping("home")
 public class LoginController {
 
     //Autowired-Springboot creates everything needed from DAO's to run controller

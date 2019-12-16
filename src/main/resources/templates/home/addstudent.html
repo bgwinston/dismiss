@@ -15,8 +15,7 @@
 <form method="post" th:object="${student}">
     <label th:for ="studentname">Student Name</label>
     <br/>
-
-    <input class="form-control"  placeholder="Enter your child's first and last name."  th:field ="*{studentname}" required>
+    <input class="form-control"  placeholder="Enter your child's first and last name."  th:field ="*{studentname}" required/>
     <span th:errors="*{studentname}" class="error"></span>
 
     <br/>

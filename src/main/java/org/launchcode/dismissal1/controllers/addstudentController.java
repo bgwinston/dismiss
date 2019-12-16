@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("")
+@RequestMapping("home")
 public class addstudentController {
 
 
@@ -39,7 +39,7 @@ public class addstudentController {
     @GetMapping(value = "addstudent")
     public String displayaddstudentForm(Model model) {
         model.addAttribute("title", "Add Student");
-        model.addAttribute("Student", new Student());
+        model.addAttribute("student", new Student());
         return "home/addstudent";
     }
 
@@ -48,7 +48,6 @@ public class addstudentController {
     public String addstudentForm(@ModelAttribute @Valid Student newstudent, Errors errors, Model model, @RequestParam String studentname) {
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add Student");
-            model.addAttribute("Student", new Student());
             return "home/addstudent";
         }
         studentDao.save(newstudent);
