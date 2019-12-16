@@ -13,8 +13,6 @@
 </br>
 </br>
 
-<h1 th:text="${title}">Default Title</h1>
-
 <p th:unless="${student} and ${student.size()}">No students </p>
 
 <table class="table">
@@ -34,7 +32,10 @@
 
 </table>
 
-<a href="/home/addstudent">Add a student </a>
+<a href="addstudent">Add a student </a>
+</br>
+</br>
+<a href="delete">Remove a student </a>
 
 
 </body>

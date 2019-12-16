@@ -22,20 +22,10 @@ public class addstudentController {
     @RequestMapping(value = "allStudents")
     public String showallstudentindex(Model model) {
         model.addAttribute("title", "All Students");
-        model.addAttribute("Student", studentDao.findAll());
+        model.addAttribute("student", studentDao.findAll());
         return "home/allStudents";
     }
 
-    //deletestudent
-    //@RequestMapping(value="allStudents")
-    //public
-
-    @RequestMapping(value = "sconfirmation")
-    public String log(Model model) {
-        model.addAttribute("title", "Confirmation");
-        return "home/sconfirmation";
-    }
-    //Display of Form
     @GetMapping(value = "addstudent")
     public String displayaddstudentForm(Model model) {
         model.addAttribute("title", "Add Student");
@@ -59,5 +49,16 @@ public class addstudentController {
         model.addAttribute("title", "Remove Student");
         model.addAttribute("students",studentDao.findAll());
         return"home/delete";
+    }
+
+    //User selects which student to delete
+    //Selected student found in database
+    //Student removed from database
+    @PostMapping("delete")
+    public String processdeletestudentform (@ModelAttribute Student student){
+        if (studentDao.findById(student.getId()).equals(student.getId())){
+            studentDao.delete(student);
+        }
+        return "redirect:allStudents";
     }
 }
