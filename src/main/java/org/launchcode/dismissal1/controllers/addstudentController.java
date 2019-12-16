@@ -1,6 +1,8 @@
 package org.launchcode.dismissal1.controllers;
 
 import org.launchcode.dismissal1.models.Student;
+import org.launchcode.dismissal1.models.data.ChangetransportationDao;
+import org.launchcode.dismissal1.models.data.EarlyDao;
 import org.launchcode.dismissal1.models.data.StudentDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +19,8 @@ public class addstudentController {
 
     @Autowired
     private StudentDao studentDao;
+    private EarlyDao earlyDao;
+    private ChangetransportationDao changetransportationDao;
 
     //Show all students.
     @RequestMapping(value = "allStudents")
@@ -35,37 +39,48 @@ public class addstudentController {
 
     //Process Form
     @PostMapping(value = "addstudent")
-    public String addstudentForm(@ModelAttribute @Valid Student newstudent, Errors errors, Model model, @RequestParam String studentname) {
+    public String addstudentForm(@ModelAttribute @Valid Student student, Errors errors, Model model) {
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add Student");
             return "home/addstudent";
         }
-        studentDao.save(newstudent);
+        studentDao.save(student);
+        return "redirect:page";
+    }
+
+    //user selects student
+    //student information found in database
+    //student information brought to view
+    @GetMapping(value = "page")
+    public String studentpageForm(Model model) {
+        model.addAttribute("title", "Your Log");
+        //model.addAttribute("early", earlyDao.find;
+        //model.addAttribute("changetransportation", changetransportationDao.findAll());
+        //model.addAttribute("student", new Student());
         return "home/page";
     }
 
-    @GetMapping(value="page")
-    public String studentpageForm(Model model){
-        model.addAttribute("title","Your Log");
-        model.addAttribute("student", new Student());
-        return"home/page";
-    }
     //delete student
     @GetMapping("delete")
     public String displaydeletestudentform(Model model) {
         model.addAttribute("title", "Remove Student");
-        model.addAttribute("students",studentDao.findAll());
-        return"home/delete";
+        model.addAttribute("students", studentDao.findAll());
+        return "home/delete";
     }
 
     //User selects which student to delete
     //Selected student found in database
     //Student removed from database
     @PostMapping("delete")
-    public String processdeletestudentform (@RequestParam int[] studentids) {
-        for(int studentid : studentids) {
-            studentDao.deleteById(studentid);
+    public String processdeletestudentform(@RequestParam(required = false) int[] studentids) {
+        if (studentids != null) {
+            for (int id : studentids) {
+                studentDao.deleteById(id);
+            }
+            return "redirect:allStudents";
         }
-        return "redirect:allStudents";
+        return "home/delete";
+
     }
+
 }
