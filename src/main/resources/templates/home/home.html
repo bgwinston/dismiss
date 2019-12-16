@@ -7,21 +7,23 @@
 </head>
 
 <body class="container">
+
+<br/>
+<br/>
+
 <h1 th:text="${title}">Default Title</h1>
+
 <nav th:replace="fragments :: navigation"></nav>
 
-<h2 Hello th:field="*{username}"></h2>
+<br/>
+<br/>
+<a href="/early/index" type="button" class="btn btn-primary btn-lg btn-block">View Early Release History History</a>
 
-<a href="/early/earlyconfirmation" method="Get" >
-    View early release history!
 </a>
 <br/>
 <br/>
 <br/>
 
-<a href="/switch/index" method="Get" >
-    View transportation switch log!
-</a>
-
+<a href="/switch/indext" type="button" class="btn btn-primary btn-lg btn-block">View Transportation History</a>
 </body>
 </html>

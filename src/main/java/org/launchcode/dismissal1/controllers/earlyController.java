@@ -15,7 +15,7 @@ import javax.validation.Valid;
 //Info to display-Student and teacher name, Student grade level. Has to pull from login.
 // Early pick up form and processing.
 @Controller
-@RequestMapping("Early")
+@RequestMapping("early")
 public class earlyController {
 
 
@@ -24,10 +24,10 @@ public class earlyController {
 
     //Display history of pick ups
     @RequestMapping(value = "index")
-    public String log(Model model) {
+    public String loge(Model model) {
         model.addAttribute("title", "Early Pick Up Log");
         model.addAttribute("Early", earlyDao.findAll());
-        return "Early/index";
+        return "early/index";
     }
 
     //Display of Form
