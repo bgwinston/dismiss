@@ -26,7 +26,7 @@ public class earlyController {
     @RequestMapping(value = "index")
     public String loge(Model model) {
         model.addAttribute("title", "Early Pick Up Log");
-        model.addAttribute("Early", earlyDao.findAll());
+        model.addAttribute("early", earlyDao.findAll());
         return "early/index";
     }
 
