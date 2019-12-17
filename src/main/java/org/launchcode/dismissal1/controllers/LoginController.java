@@ -48,6 +48,16 @@ public class LoginController {
         return "home/login";
     }
 
+    @RequestMapping(value ="login", method= RequestMethod.POST)
+    public String login(Model model, @ModelAttribute User user, String verify_password){
+        if (user.getPassword().equals(verify_password)){
+            return "home/log";
+        }
+        model.addAttribute("error_message", "I'm sorry, but password doesn't match verify password. Please try again.");
+        return "home/login";
+    }
+
+
     //New Account form
     @RequestMapping(value = "newaccount", method = RequestMethod.GET)
     public String account(Model model) {
@@ -61,7 +71,7 @@ public class LoginController {
     public String accountProcess(@ModelAttribute @Valid User user, Errors errors, Model model) {
         if (errors.hasErrors()) {
             model.addAttribute("title", "New Account Sign-up");
-            return "home/newaccount";
+            return "redirect:newaccount";
         }
         userDao.save(user);
         return "home/log";

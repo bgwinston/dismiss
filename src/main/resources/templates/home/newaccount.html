@@ -5,21 +5,32 @@
 <head th:replace="fragments :: head"></head>
 
 <body class="container">
-
+<br/>
+<br/>
 <h1 th:text="${title}">Default Title</h1>
 <nav th:replace="fragments :: navigation"></nav>
 <br/>
 <br/>
-<form method="post" th:object="${user}">
-    <label th:for= "username">Username</label>
-    <input type="text" placeholder="Enter Username" th:field="*{username}"required>
-    <br/>
-    <br/>
-    <label th:for="password">Password</label>
-    <input type="password" placeholder="Enter Password" th:field="*{password}" required>
-    <br/>
-    <br/>
-    <button type="submit">Create Account</button>
+<form th:object="${user}" method="post">
+    <div class="form-group" >
+        <label for="username1">Username</label>
+        <input type="text" class="form-control" id="username1" aria-describedby="usernameHelp" required th:field="*{username}"/>
+        <small id="usernameHelp" class="form-text text-muted">Username will only be used for this site.</small>
+    </div>
+    <div class="form-group">
+        <label for="password1">Password</label>
+        <input type="password" class="form-control" id="password1" required th:field="*{password}"/>
+    </div>
+    <div class="form-group">
+        <label for="verify-password-field">Verify Password</label>
+        <input class="form-control" id="verify-password-field" type="password" name="verify_password" />
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" required th:field="*{email}"/>
+    </div>
+    <p th:if="${error_message}" style="color:red;" th:text="${error_message}"></p>
+    <button type="submit" class="btn btn-primary">Login</button>
 </form>
 </body>
 </html>
