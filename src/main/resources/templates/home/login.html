@@ -13,9 +13,7 @@
 <h1 th:text="${title}">Default Title</h1>
 
 <h2>Your School: Pershing Elementary</h2>
-<ul>
-    <li th:each="err : ${#fields.errors('user')}" th:text="${err}" />
-</ul>
+
 
 <form th:object="${user}" method="post">
     <div class="form-group" >

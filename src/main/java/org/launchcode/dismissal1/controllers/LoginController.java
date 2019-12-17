@@ -61,7 +61,7 @@ public class LoginController {
     //New Account form
     @RequestMapping(value = "newaccount", method = RequestMethod.GET)
     public String account(Model model) {
-        model.addAttribute("title", "New Account Sign-up");
+        model.addAttribute("title", "The Dismissal App");
         model.addAttribute(new User());
         return "home/newaccount";
     }

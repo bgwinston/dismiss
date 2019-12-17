@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-
-
-<head th:replace="fragments :: head"></head>
+<head>
+    <meta charset="UTF-8">
+    <title h1 th:text="${title}">Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>
+</head>
 
 <body class="container">
-<br/>
-<br/>
 <h1 th:text="${title}">Default Title</h1>
-<nav th:replace="fragments :: navigation"></nav>
+<br/>
+<h2>New Account Sign up</h2>
+
 <br/>
 <br/>
 <form th:object="${user}" method="post">
