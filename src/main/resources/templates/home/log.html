@@ -6,20 +6,30 @@
 </head>
 
 <body class="container">
+<br/>
+<br/>
 <h1 th:text="${title}">Default Title</h1>
-<nav th:replace="fragments :: navigation"></nav>
+<p th:unless="${student} and ${student.size()}">No students </p>
 
-<form action="/early/earlyconfirmation" method="Get"/>
-<button type="submit">View Change of Transportation Log</button>
-</form>
+<table class="table">
 
-<br/>
-<br/>
-<br/>
+    <tr>
+        <th>Student Name</th>
+        <th>            </th>
+        <th>Teacher Name</th>
+        <th>Grade Level</th>
 
-<form action="/switch/index" method="get"/>
-<button type="submit">View Early Release Log</button>
-</form>
+    </tr>
+
+    <tr th:each="student : ${student}">
+        <td><a th:href="'page'" th:text="${student.studentname}"></a><td>
+        <td th:text="${student.teachername}"></td>
+        <td th:text="${student.gradelevel}"></td>
+    </tr>
+
+</table>
+
+<a href="addstudent">Add a student </a>
 
 </body>
 </html>

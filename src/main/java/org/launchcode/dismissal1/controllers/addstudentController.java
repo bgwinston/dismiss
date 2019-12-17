@@ -30,6 +30,11 @@ public class addstudentController {
         return "home/allStudents";
     }
 
+    @RequestMapping(value="log")
+    public String log (Model model){
+        model.addAttribute("title","Your Children");
+        return "home/log";
+    }
     @GetMapping(value = "addstudent")
     public String displayaddstudentForm(Model model) {
         model.addAttribute("title", "Add Student");
@@ -45,7 +50,7 @@ public class addstudentController {
             return "home/addstudent";
         }
         studentDao.save(student);
-        return "redirect:page";
+        return "redirect:allStudents";
     }
 
     //user selects student
