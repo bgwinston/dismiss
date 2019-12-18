@@ -15,7 +15,7 @@
 
 <h1 th:text="${title}">Default Title</h1>
 
-<p th:unless="${changetransportation} and ${changetransportation.size()}">No record of transportation change </p>
+<p th:unless="${changetransportations} and ${changetransportations.size()}">No record of transportation change </p>
 
 <table class="table">
 
@@ -26,7 +26,7 @@
         <th>Note</th>
     </tr>
 
-    <tr th:each="changetransportation : ${changetransportation}">
+    <tr th:each="changetransportation : ${changetransportations}">
         <td th:text="${changetransportation.transportation}"></td>
         <td th:text="${changetransportation.transportationchange}"></td>
         <td th:text="${changetransportation.datec}"></td>

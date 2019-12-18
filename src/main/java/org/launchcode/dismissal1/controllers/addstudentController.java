@@ -56,12 +56,13 @@ public class addstudentController {
     //user selects student
     //student information found in database
     //student information brought to view
-    @GetMapping(value = "page")
-    public String studentpageForm(Model model) {
+    @GetMapping(value = "page/{id}")
+    public String studentpageForm(@PathVariable int id, Model model) {
+
         model.addAttribute("title", "Your Log");
         //model.addAttribute("early", earlyDao.find;
         //model.addAttribute("changetransportation", changetransportationDao.findAll());
-        //model.addAttribute("student", new Student());
+        model.addAttribute("student", studentDao.findById(id).get());
         return "home/page";
     }
 

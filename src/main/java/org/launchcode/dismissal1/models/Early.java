@@ -27,8 +27,8 @@ public class Early {
     @Size(min = 1, message= "Write a note for your records.")
     private String notes;
 
-    @ManyToMany(mappedBy = "early1")
-    private List<Student> students;
+    //@ManyToMany(mappedBy = "early1")
+    //private List<Student> students;
 
     public Early(String timeofpickup, String dateofpickup, String notes) {
         this.timeofpickup = timeofpickup;

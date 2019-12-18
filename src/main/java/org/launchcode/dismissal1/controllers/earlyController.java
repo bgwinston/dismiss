@@ -36,7 +36,7 @@ public class earlyController {
         model.addAttribute("title", "Early Pickup");
         model.addAttribute(new Early());
 
-        return "Early/release";
+        return "early/release";
     }
 
     //Process Form
@@ -44,9 +44,9 @@ public class earlyController {
     public String processearlyForm(@ModelAttribute @Valid Early early, Errors errors, Model model) {
         if (errors.hasErrors()) {
             model.addAttribute("title", "Early Pickup");
-            return "Early/release";
+            return "early/release";
         }
         earlyDao.save(early);
-        return"redirect:Early/earlyconfirmation";
+        return"redirect:index";
     }
 }
