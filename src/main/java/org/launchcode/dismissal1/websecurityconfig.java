@@ -1,6 +1,6 @@
 package org.launchcode.dismissal1;
 
-/*import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -15,10 +15,9 @@ public class websecurityconfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .authorizeRequests()
                 //antMatchers is where you put pages that you want to allow//
-                .antMatchers( "/login", "/newaccount").permitAll()
+                .antMatchers( "/", "/home/login", "/home/newaccount").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .httpBasic();
    }
 }
-*/
