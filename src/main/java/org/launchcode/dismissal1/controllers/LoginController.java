@@ -48,6 +48,11 @@ public class LoginController {
         return "home/login";
     }
 
+    @RequestMapping(value = "logout", method = RequestMethod.GET)
+    public String logoutpage(Model model) {
+        return "home/logout";
+    }
+
     @RequestMapping(value ="login", method= RequestMethod.POST)
     public String login(Model model, @ModelAttribute User user, String verify_password){
         if (user.getPassword().equals(verify_password)){
