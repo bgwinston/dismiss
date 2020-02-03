@@ -20,19 +20,14 @@ public class User { //Database fields//
     @Size(min = 3, max = 20)
     private String password;
 
-    @NotNull
-    @Size(min = 3, max = 20)
-    private String email;
-
     //@OneToMany
     //@JoinColumn(name = "user_id")
     //private List<Student>students=new ArrayList<>();
 
 
-    public User(String username, String password, String email) {
+    public User(String username, String password) {
         this.username = username;
         this.password = password;
-        this.email = email;
     }
 
     public User() {
@@ -57,8 +52,4 @@ public class User { //Database fields//
     public void setPassword(String password) {
         this.password = password;
     }
-
-    public String getEmail(){return email;}
-    public void setEmail(String email) {this.email=email;}
-
 }
