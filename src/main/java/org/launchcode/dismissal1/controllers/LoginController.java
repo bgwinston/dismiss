@@ -35,10 +35,10 @@ public class LoginController {
     ChangetransportationDao changetransportationDao;
 
 
-    @RequestMapping(value="home")
+    @RequestMapping(value="page")
     public String log(Model model) {
         model.addAttribute("title", "Transportation Records");
-        return "home/home";
+        return "home/page";
     }
     // Login Form Display
     @RequestMapping(value = "login", method = RequestMethod.GET)
