@@ -20,14 +20,19 @@ public class User { //Database fields//
     @Size(min = 3, max = 20)
     private String password;
 
+    @NotNull
+    @Size(min = 3, max = 20)
+    private String verify_password;
+
     //@OneToMany
     //@JoinColumn(name = "user_id")
     //private List<Student>students=new ArrayList<>();
 
 
-    public User(String username, String password) {
+    public User(String username, String password, String verify_password) {
         this.username = username;
         this.password = password;
+        this.verify_password=verify_password;
     }
 
     public User() {
@@ -52,4 +57,6 @@ public class User { //Database fields//
     public void setPassword(String password) {
         this.password = password;
     }
+    public String getVerify_password(){return verify_password;}
+    public void setVerify_password(String verify_password){this.verify_password=verify_password;}
 }

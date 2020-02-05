@@ -16,17 +16,17 @@
 <br/>
 <form th:object="${user}" method="post">
     <div class="form-group" >
-        <label for="username1">Username</label>
-        <input type="text" class="form-control" id="username1" aria-describedby="usernameHelp" required th:field="*{username}"/>
+        <label th:for="username">Username</label>
+        <input type="text" class="form-control" id="username" aria-describedby="usernameHelp" required th:field="*{username}"/>
         <small id="usernameHelp" class="form-text text-muted">Username will only be used for this site.</small>
     </div>
     <div class="form-group">
-        <label for="password1">Password</label>
-        <input type="password" class="form-control" id="password1" required th:field="*{password}"/>
+        <label th:for="password">Password</label>
+        <input type="password" class="form-control" id="password" required th:field="*{password}"/>
     </div>
     <div class="form-group">
-        <label for="verify-password-field">Verify Password</label>
-        <input class="form-control" id="verify-password-field" type="password" name="verify_password" />
+        <label th:for="verify_password">Verify Password</label>
+        <input type="password" class="form-control" id="verify_password"  th:field="*{verify_password}"/>
     </div>
     <p th:if="${error_message}" style="color:red;" th:text="${error_message}"></p>
     <button type="submit" class="btn btn-primary">Create Account</button>
