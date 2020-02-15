@@ -3,10 +3,9 @@ package org.launchcode.dismissal1.models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.List;
 
 @Entity
 public class Changetransportation {
@@ -30,14 +29,18 @@ public class Changetransportation {
     @Size(min = 3, max=200, message= "Write a note for your records.")
     private String notes1;
 
-    @ManyToMany (mappedBy = "changetransportations")
-    private List<Student> students;
 
-//@Size(min = 3)
-//format of date and time of submission
-//private LocalDateTime submission=LocalDateTime.now();
-//DateTimeFormatter forsubmission = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-//private String formattedDate = submission.format(forsubmission);
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
+    @ManyToOne
+    private Student student;
+
 
     public Changetransportation(String transportation, String transportationchange, String datec, String notes1) {
         this.transportation = transportation;

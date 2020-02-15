@@ -1,10 +1,10 @@
 package org.launchcode.dismissal1.models;
 
 
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -25,22 +25,24 @@ public class Student {
     @NotNull
     private String gradelevel;
 
-    @ManyToMany
-    private List<Changetransportation> changetransportations;
-    @ManyToMany
-    private List<Early>early1;
+    @NotNull
+    private String transportationMode;
 
-    public Student(String studentname, String teachername, String gradelevel) {
+    @OneToMany
+    @JoinColumn(name="student_id")
+    private List<Changetransportation> changetransportations = new ArrayList<>();
+
+    public Student(String studentname, String teachername, String gradelevel, String transportationMode) {
         this.studentname = studentname;
         this.teachername=teachername;
         this.gradelevel=gradelevel;
+        this.transportationMode=transportationMode;
     }
 
     public Student() {
 
     }
-    public void addItem(Changetransportation item) {changetransportations.add(item);}
-    public void addIteme(Early item1) {early1.add(item1);}
+
 
     public int getId() {
         return id;
@@ -69,4 +71,8 @@ public class Student {
     public void setGradelevel(String gradelevel) {
         this.gradelevel = gradelevel;
     }
+
+    public String getTransportationMode(){return transportationMode;}
+
+    public void setTransportationMode(String transportationMode){ this.transportationMode=transportationMode;}
 }

@@ -47,6 +47,6 @@ public class earlyController {
             return "Early/release";
         }
         earlyDao.save(early);
-        return"redirect:Early/earlyconfirmation";
+        return "Early/earlyconfirmation";
     }
 }

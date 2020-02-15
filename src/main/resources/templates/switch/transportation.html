@@ -46,6 +46,7 @@
     <input type="text" placeholder="Write a note" th:field="*{notes1}">
     <span th:errors="*{notes1}" class="error"></span>
      <br/>
+    <!---<input type="hidden" name="studentId" id="studentId" th:value="${student.getId()}"/>--->
     <button type="submit" class="btn btn-success">Submit</button>
 </form>
 
