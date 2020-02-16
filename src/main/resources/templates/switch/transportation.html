@@ -8,7 +8,7 @@
 </head>
 
 <body>
-<h1 th:text="${title}"></h1>
+<h1 th:text="${title}">Default Title</h1>
 <nav th:replace="fragments :: navigation"></nav>
 <br/>
 <br/>
@@ -16,14 +16,6 @@
 <br/>
 
 <form action="/switch/transportation" method= "post" th:object="${changetransportation}">
-    <label th:for= "transportation" >Original Transportation</label>
-    <select th:field="*{transportation}" required>
-        <option value="space">           </option>
-        <option value="Car Rider">   Car Rider</option>
-        <option value="Walker">      Walker</option>
-        <option value="Bus Rider">   Bus Rider</option>
-        <span th:errors="*{transportation}" class="error"></span>
-    </select>
     <br/>
     <br/>
     <label th:for= "transportationchange" >Transportation Change</label>

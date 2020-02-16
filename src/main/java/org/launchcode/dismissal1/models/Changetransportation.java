@@ -14,10 +14,6 @@ public class Changetransportation {
     private int id;
 
     @NotNull
-    @Size(min = 3, max= 8, message = "Select Current Transportation.")
-    private String transportation;
-
-    @NotNull
     @Size(min = 3, max= 8, message = "Select Transportation change.")
     private String transportationchange;
 
@@ -42,8 +38,7 @@ public class Changetransportation {
     private Student student;
 
 
-    public Changetransportation(String transportation, String transportationchange, String datec, String notes1) {
-        this.transportation = transportation;
+    public Changetransportation(String transportationchange, String datec, String notes1) {
         this.transportationchange=transportationchange;
         this.datec = datec;
         this.notes1 = notes1;
@@ -56,14 +51,6 @@ public class Changetransportation {
 
     public int getId() {
         return id;
-        }
-
-    public String getTransportation() {
-        return transportation;
-        }
-
-    public void setTransportation(String transportation ) {
-        this.transportation = transportation;
         }
 
     public String getTransportationchange() {

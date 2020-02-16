@@ -1,7 +1,5 @@
 package org.launchcode.dismissal1.controllers;
 
-import org.launchcode.dismissal1.models.Changetransportation;
-import org.launchcode.dismissal1.models.Early;
 import org.launchcode.dismissal1.models.Student;
 import org.launchcode.dismissal1.models.data.ChangetransportationDao;
 import org.launchcode.dismissal1.models.data.EarlyDao;
@@ -58,14 +56,16 @@ public class addstudentController {
     //user selects student
     //student information found in database
     //student information brought to view
-    @GetMapping(value = "page")
-    public String studentpageForm(Model model, @RequestParam Student student, Early early, Changetransportation changetransportation)
+    @GetMapping(value = "page/{id}")
+    public String studentpageForm(@PathVariable int id, Model model)
 
     {
         model.addAttribute("title", "Log");
-        model.addAttribute("early", earlyDao.findById(student.getId()));
-        model.addAttribute("changetransportation", changetransportationDao.findById(student.getId()));
-        model.addAttribute("student", new Student());
+        model.addAttribute("student", studentDao.findById(id).get());
+        //model.addAttribute("early", earlyDao.findById(id).get());
+        //model.addAttribute("changetransportation", changetransportationDao.findAll());
+        //model.addAttribute("student", new Student());
+
         return "home/page";
     }
 
