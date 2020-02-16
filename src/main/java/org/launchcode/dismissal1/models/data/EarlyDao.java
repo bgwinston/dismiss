@@ -9,5 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public interface EarlyDao extends CrudRepository<Early,Integer> {
 
+
     }
 

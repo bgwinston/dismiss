@@ -29,8 +29,12 @@ public class Student {
     private String transportationMode;
 
     @OneToMany
-    @JoinColumn(name="student_id")
+    @JoinColumn(name ="student_id")
     private List<Changetransportation> changetransportations = new ArrayList<>();
+
+    @OneToMany
+    @JoinColumn(name="student_id")
+    private List<Early> early= new ArrayList<>();
 
     public Student(String studentname, String teachername, String gradelevel, String transportationMode) {
         this.studentname = studentname;

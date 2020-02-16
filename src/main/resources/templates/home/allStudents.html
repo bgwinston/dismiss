@@ -22,13 +22,16 @@
         <th>            </th>
         <th>Teacher Name</th>
         <th>Grade Level</th>
+        <th>Original Transportation Mode</th>
+
 
     </tr>
 
     <tr th:each="student : ${student}">
-        <td><a th:href="'page'" th:text="${student.studentname}"></a><td>
+        <td><a th:href="'page/'+${student.getId()}" th:text="${student.studentname}"></a><td>
         <td th:text="${student.teachername}"></td>
         <td th:text="${student.gradelevel}"></td>
+        <td th:text="${student.transportationMode}"></td>
     </tr>
 
 </table>

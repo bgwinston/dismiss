@@ -15,7 +15,7 @@
 <br/>
 <br/>
 
-<form method= "post" th:object="${changetransportation}">
+<form action="/switch/transportation" method= "post" th:object="${changetransportation}">
     <label th:for= "transportation" >Original Transportation</label>
     <select th:field="*{transportation}" required>
         <option value="space">           </option>
@@ -46,7 +46,7 @@
     <input type="text" placeholder="Write a note" th:field="*{notes1}">
     <span th:errors="*{notes1}" class="error"></span>
      <br/>
-    <!---<input type="hidden" name="studentId" id="studentId" th:value="${student.getId()}"/>--->
+    <input type="hidden" name="studentId" id="studentId" th:value="${student.getId()}"/>
     <button type="submit" class="btn btn-success">Submit</button>
 </form>
 

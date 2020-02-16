@@ -49,6 +49,15 @@
         <option value="5">   5th Grade</option>
         <span th:errors="*{gradelevel}" class="error"></span>
     </select>
+    <br/>
+    <label th:for= "transportationMode" >Transportation Mode</label>
+    <select th:field="*{transportationMode}" required>
+        <option value="space">         </option>
+        <option value="Car Rider">   Car Rider</option>
+        <option value="Walker">      Walker</option>
+        <option value="Bus Rider">   Bus Rider</option>
+        <span th:errors="*{transportationMode}" class="error"></span>
+    </select>
     <button type="submit" class="btn btn-success">Add Student</button>
 </form>
 

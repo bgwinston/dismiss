@@ -1,5 +1,7 @@
 package org.launchcode.dismissal1.controllers;
 
+import org.launchcode.dismissal1.models.Changetransportation;
+import org.launchcode.dismissal1.models.Early;
 import org.launchcode.dismissal1.models.Student;
 import org.launchcode.dismissal1.models.data.ChangetransportationDao;
 import org.launchcode.dismissal1.models.data.EarlyDao;
@@ -30,11 +32,11 @@ public class addstudentController {
         return "home/allStudents";
     }
 
-    @RequestMapping(value="log")
-    public String log (Model model){
-        model.addAttribute("title","Your Children");
-        return "home/log";
-    }
+    //@RequestMapping(value="log")
+    //public String log (Model model){
+       // model.addAttribute("title","Your Children");
+        //return "home/log";
+ //   }
     @GetMapping(value = "addstudent")
     public String displayaddstudentForm(Model model) {
         model.addAttribute("title", "Add Student");
@@ -57,11 +59,13 @@ public class addstudentController {
     //student information found in database
     //student information brought to view
     @GetMapping(value = "page")
-    public String studentpageForm(Model model) {
-        model.addAttribute("title", "Your Log");
-        //model.addAttribute("early", earlyDao.find;
-        //model.addAttribute("changetransportation", changetransportationDao.findAll());
-        //model.addAttribute("student", new Student());
+    public String studentpageForm(Model model, @RequestParam Student student, Early early, Changetransportation changetransportation)
+
+    {
+        model.addAttribute("title", "Log");
+        model.addAttribute("early", earlyDao.findById(student.getId()));
+        model.addAttribute("changetransportation", changetransportationDao.findById(student.getId()));
+        model.addAttribute("student", new Student());
         return "home/page";
     }
 
