@@ -47,6 +47,10 @@ public class Early {
     public Early(){
     }
 
+    public int getId() {
+        return id;
+    }
+
     public String getTimeofpickup() {
         return timeofpickup;
     }

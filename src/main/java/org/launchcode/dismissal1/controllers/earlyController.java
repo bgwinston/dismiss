@@ -37,10 +37,9 @@ public class earlyController {
     //Display of Form
     @RequestMapping(value = "release/{id}", method = RequestMethod.GET)
     public String displayearlyForm(@PathVariable int id, Model model) {
-        model.addAttribute("student", studentDao.findById(id).get());
+        //model.addAttribute("student", studentDao.findById(id).get());
         model.addAttribute("title", "Early Pickup");
-        model.addAttribute(new Early());
-
+        model.addAttribute("early",new Early());
         return "Early/release";
     }
 
@@ -49,7 +48,7 @@ public class earlyController {
     public String processearlyForm(@ModelAttribute @Valid Early early, BindingResult bindingResult, @RequestParam(value="studentId") int studentId, Errors errors, Model model) {
         if (errors.hasErrors()) {
             model.addAttribute("title", "Early Pickup");
-            return "Early/release";
+            return "early/release";
         }
         Student student = studentDao.findById(studentId).get();
         early.setStudent(student);
@@ -63,6 +62,6 @@ public class earlyController {
             }
         }
         model.addAttribute("earlys", earlys);
-        return "Early/earlyconfirmation";
+        return "early/earlyconfirmation";
     }
 }

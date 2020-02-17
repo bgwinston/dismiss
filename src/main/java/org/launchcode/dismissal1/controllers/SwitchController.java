@@ -56,7 +56,7 @@ public class SwitchController {
         if (errors.hasErrors()) {
             model.addAttribute("title", "Transportation Change");
             return "switch/transportation";
-        }
+        } else {
         Student student = studentDao.findById(studentId).get();
         student.setTransportationMode(changetransportation.getTransportationchange());
         changetransportation.setStudent(student);
@@ -73,4 +73,4 @@ public class SwitchController {
         return "switch/indext";
     }
 
-}
+}}

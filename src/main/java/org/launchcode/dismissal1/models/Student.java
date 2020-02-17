@@ -34,7 +34,7 @@ public class Student {
 
     @OneToMany
     @JoinColumn(name="student_id")
-    private List<Early> early= new ArrayList<>();
+    private List<Early> earlys= new ArrayList<>();
 
     public Student(String studentname, String teachername, String gradelevel, String transportationMode) {
         this.studentname = studentname;
