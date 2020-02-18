@@ -42,7 +42,6 @@ public class Changetransportation {
         this.transportationchange=transportationchange;
         this.datec = datec;
         this.notes1 = notes1;
-        //this.formattedDate = formattedDate;
         }
 
     public Changetransportation() {

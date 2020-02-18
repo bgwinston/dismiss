@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 public interface UserDao extends CrudRepository<User,Integer> {
 
     User findByUsername (String username);
-   //User findByPassword (String password);
+    User findByPassword (String password);
 
 
 }

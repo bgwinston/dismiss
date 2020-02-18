@@ -9,7 +9,6 @@ import org.launchcode.dismissal1.models.data.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -49,12 +48,16 @@ public class LoginController {
     }
 
     @RequestMapping(value ="login", method= RequestMethod.POST)
-    public String login(Model model, @ModelAttribute User user, String verify_password){
-        if (user.getPassword().equals(verify_password)){
+    public String login(Model model, @ModelAttribute User user, String verify_password) {
+        if (user.getPassword().equals(userDao.findByPassword(verify_password))) {
             return "home/log";
+        } else if(!user.getPassword().equals(verify_password)) {
+            model.addAttribute("error_message", "I'm sorry, but password doesn't match verify password. Please try again.");
+            return "home/login";
+        } else{//(!user.getPassword().equals(userDao.findByPassword(verify_password)))
+            model.addAttribute("error_message", "Account not found. Please create an account.");
+            return "home/login";
         }
-        model.addAttribute("error_message", "I'm sorry, but password doesn't match verify password. Please try again.");
-        return "home/login";
     }
 
 
