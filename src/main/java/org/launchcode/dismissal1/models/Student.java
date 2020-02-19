@@ -36,11 +36,16 @@ public class Student {
     @JoinColumn(name="student_id")
     private List<Early> earlys= new ArrayList<>();
 
+//    @ManyToOne
+  //  @JoinColumn(name="user_id") ;
+    //private List<Student>students=new ArrayList<>();
+
     public Student(String studentname, String teachername, String gradelevel, String transportationMode) {
         this.studentname = studentname;
         this.teachername=teachername;
         this.gradelevel=gradelevel;
         this.transportationMode=transportationMode;
+
     }
 
     public Student() {

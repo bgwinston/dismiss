@@ -50,7 +50,7 @@ public class LoginController {
     @RequestMapping(value ="login", method= RequestMethod.POST)
     public String login(Model model, @ModelAttribute User user, String verify_password) {
         if (user.getPassword().equals(userDao.findByPassword(verify_password))) {
-            return "home/log";
+            return "home/log{id}";
         } else if(!user.getPassword().equals(verify_password)) {
             model.addAttribute("error_message", "I'm sorry, but password doesn't match verify password. Please try again.");
             return "home/login";
@@ -77,7 +77,7 @@ public class LoginController {
             return "redirect:newaccount";
         }
         userDao.save(user);
-        return "home/log";
+        return "home/log{id}";
 
     }
 }
