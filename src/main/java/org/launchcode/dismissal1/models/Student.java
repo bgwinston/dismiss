@@ -28,6 +28,9 @@ public class Student {
     @NotNull
     private String transportationMode;
 
+    @ManyToOne
+    private User user;
+
     @OneToMany
     @JoinColumn(name ="student_id")
     private List<Changetransportation> changetransportations = new ArrayList<>();
@@ -36,9 +39,6 @@ public class Student {
     @JoinColumn(name="student_id")
     private List<Early> earlys= new ArrayList<>();
 
-//    @ManyToOne
-  //  @JoinColumn(name="user_id") ;
-    //private List<Student>students=new ArrayList<>();
 
     public Student(String studentname, String teachername, String gradelevel, String transportationMode) {
         this.studentname = studentname;
