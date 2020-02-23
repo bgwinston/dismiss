@@ -11,7 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -49,9 +48,9 @@ public class LoginController {
     }
 
     @RequestMapping(value ="login", method= RequestMethod.POST)
-    public String login(@PathVariable int id, Model model, @ModelAttribute User user, String verify_password) {
+    public String login(Model model, @ModelAttribute User user, String verify_password) {
         if (user.getPassword().equals(userDao.findByPassword(verify_password))) {
-            return "home/log{id}";
+            return "home/log";
         } else if(!user.getPassword().equals(verify_password)) {
             model.addAttribute("error_message", "I'm sorry, but password doesn't match verify password. Please try again.");
             return "home/login";
@@ -72,16 +71,15 @@ public class LoginController {
 
     //New Account process form
     @RequestMapping(value = "newaccount", method = RequestMethod.POST)
-    public String accountProcess(@PathVariable int id, @ModelAttribute @Valid User user, Errors errors, Model model) {
+    public String accountProcess(@ModelAttribute @Valid User user, Errors errors, Model model) {
         if (errors.hasErrors()) {
             model.addAttribute("title", "New Account Sign-up");
             return "redirect:newaccount";
         }
-        //user saved- pull up page with all students attached to username.
         userDao.save(user);
-        userDao.findById(id);
-        model.addAttribute("student", studentDao.findById(id).get());
-        return "home/page{id}";
+        model.addAttribute("student",studentDao.findAll());
+        //userDao.findById(id);
+        return "home/log";
 
     }
 }
