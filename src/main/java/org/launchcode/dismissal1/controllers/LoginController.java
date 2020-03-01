@@ -52,7 +52,7 @@ public class LoginController {
         if (user.getPassword().equals(userDao.findByPassword(verify_password))) {
             return "home/log";
         } else if(!user.getPassword().equals(verify_password)) {
-            model.addAttribute("error_message", "I'm sorry, but password doesn't match verify password. Please try again.");
+            model.addAttribute("error_message", "Password doesn't match verify password. Please try again.");
             return "home/login";
         } else{//(!user.getPassword().equals(userDao.findByPassword(verify_password)))
             model.addAttribute("error_message", "Account not found. Please create an account.");
@@ -79,8 +79,16 @@ public class LoginController {
         userDao.save(user);
         model.addAttribute("student",studentDao.findAll());
         //userDao.findById(id);
-        return "home/log";
+        return "home/login";
 
+    }
+
+    //Account Confirmation form
+    @RequestMapping(value = "accountconfirmation", method = RequestMethod.GET)
+    public String accountconfirmation(Model model) {
+        model.addAttribute("title", "Account Confirmation");
+       // model.addAttribute(new User());
+        return "home/accountconfirmation";
     }
 }
 
