@@ -9,7 +9,7 @@ import org.launchcode.dismissal1.models.data.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.Errors;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -34,11 +34,12 @@ public class LoginController {
     ChangetransportationDao changetransportationDao;
 
 
-    @RequestMapping(value="home")
+    @RequestMapping(value = "home")
     public String log(Model model) {
         model.addAttribute("title", "Transportation Records");
         return "home/home";
     }
+
     // Login Form Display
     @RequestMapping(value = "login", method = RequestMethod.GET)
     public String login(Model model) {
@@ -47,20 +48,21 @@ public class LoginController {
         return "home/login";
     }
 
-    @RequestMapping(value ="login", method= RequestMethod.POST)
-    public String login(Model model, @ModelAttribute User user, String verify_password) {
-        if (user.getPassword().equals(userDao.findByPassword(verify_password))) {
+    @RequestMapping(value = "login", method = RequestMethod.POST)
+    public String login(Model model, @ModelAttribute User user, String username, String verify_password) {
+        //If user input for password equals to verify password in database, send user to log.
+        if (user.getPassword().equals(userDao.findByPassword(verify_password)))  {
             return "home/log";
-        } else if(!user.getPassword().equals(verify_password)) {
+        //If user input for password does not equal verify password, display error message
+        } else if (!user.getPassword().equals(verify_password)) {
             model.addAttribute("error_message", "Password doesn't match verify password. Please try again.");
             return "home/login";
-        } else{//(!user.getPassword().equals(userDao.findByPassword(verify_password)))
+        //If user input for password and verify password is not in database.
+        } else{//(!user.getPassword().equals(userDao.findByPassword(verify_password))) {
             model.addAttribute("error_message", "Account not found. Please create an account.");
             return "home/login";
         }
     }
-
-
     //New Account form
     @RequestMapping(value = "newaccount", method = RequestMethod.GET)
     public String account(Model model) {
@@ -71,15 +73,15 @@ public class LoginController {
 
     //New Account process form
     @RequestMapping(value = "newaccount", method = RequestMethod.POST)
-    public String accountProcess(@ModelAttribute @Valid User user, Errors errors, Model model) {
+    public String accountProcess(@ModelAttribute @Valid User user,Model model, BindingResult errors) {
         if (errors.hasErrors()) {
             model.addAttribute("title", "New Account Sign-up");
             return "redirect:newaccount";
         }
         userDao.save(user);
-        model.addAttribute("student",studentDao.findAll());
+        //model.addAttribute("student",studentDao.findAll());
         //userDao.findById(id);
-        return "home/login";
+        return "home/accountconfirmation";
 
     }
 

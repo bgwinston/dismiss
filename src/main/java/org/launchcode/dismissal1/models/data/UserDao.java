@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 @Transactional
-//Database will store Dismiss objects and dismiss objects have integer id's
+//Database will store User objects and user objects have integer id's
 public interface UserDao extends CrudRepository<User,Integer> {
 
     User findByUsername (String username);
