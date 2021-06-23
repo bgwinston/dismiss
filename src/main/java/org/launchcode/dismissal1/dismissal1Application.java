@@ -1,3 +1,6 @@
+//Business objects- represent data that is apart of
+//the core functionality of the program. What is the program
+//about? Objects match what program is about.
 package org.launchcode.dismissal1;
 
 import org.springframework.boot.SpringApplication;
