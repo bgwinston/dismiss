@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 @Controller
@@ -52,7 +54,7 @@ public class LoginController {
     public String login(Model model, @ModelAttribute User user, String username, String verify_password) {
         //If user input for password equals to verify password in database, send user to log.
         if (user.getPassword().equals(userDao.findByPassword(verify_password)))  {
-            return "home/log";
+            return "home/home";
         //If user input for password does not equal verify password, display error message
         } else if (!user.getPassword().equals(verify_password)) {
             model.addAttribute("error_message", "Password doesn't match verify password. Please try again.");
@@ -79,8 +81,6 @@ public class LoginController {
             return "redirect:newaccount";
         }
         userDao.save(user);
-        //model.addAttribute("student",studentDao.findAll());
-        //userDao.findById(id);
         return "home/accountconfirmation";
 
     }
