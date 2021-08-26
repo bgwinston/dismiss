@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.validation.Valid;
 
-@Controller
-@RequestMapping("home")
+@Controller //MVC annotation to indicate this class is a controller.
+@RequestMapping("home")  //maps HTTP requests to handler methods of MVC
 public class LoginController {
 
     //Autowired-Springboot creates everything needed from DAO's to run controller
