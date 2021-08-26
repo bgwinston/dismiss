@@ -35,7 +35,7 @@ public class Student {
     public void setUser(User user) {
         this.user = user;
     }
-    @ManyToOne
+   @ManyToOne
     private User user;
 
     @OneToMany
