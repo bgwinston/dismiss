@@ -29,10 +29,6 @@
         <label for="verify-password-field">Verify Password</label>
         <input type="password" class="form-control" id="verify-password-field"  required th:field="*{verify_password}"/>
     </div>
-    <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" class="form-control" id="email" required th:field="*{email}"/>
-    </div>
     <p th:if="${error_message}" style="color:red;" th:text="${error_message}"></p>
     <button type="submit" class="btn btn-primary">Login</button>
 </form>

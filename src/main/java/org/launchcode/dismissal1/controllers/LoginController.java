@@ -50,19 +50,23 @@ public class LoginController {
 
     @RequestMapping(value = "login", method = RequestMethod.POST)
     public String login(Model model, @ModelAttribute User user, String username, String verify_password) {
-        //If user input for password equals to verify password in database, send user to log.
-        if (user.getPassword().equals(userDao.findByPassword(verify_password)))  {
-            return "home/log";
-        //If user input for password does not equal verify password, display error message
-        } else if (!user.getPassword().equals(verify_password)) {
-            model.addAttribute("error_message", "Password doesn't match verify password. Please try again.");
+        User savedUser=userDao.findByUsername((user.getUsername()));
+        if(savedUser==null){
+            model.addAttribute("error_message","Invalid Username");
+            model.addAttribute("title","The Dismissal App");
+            model.addAttribute("user",user);
             return "home/login";
-        //If user input for password and verify password is not in database.
-        } else{//(!user.getPassword().equals(userDao.findByPassword(verify_password))) {
-            model.addAttribute("error_message", "Account not found. Please create an account.");
+        }
+        if(savedUser.getPassword().equals(user.getPassword())){
+            return "redirect:home/log";
+        }else{
+            model.addAttribute("error_message","Invalid Password");
+            model.addAttribute("title","The Dismissal App");
+            model.addAttribute("user",user);
             return "home/login";
         }
     }
+
     //New Account form
     @RequestMapping(value = "newaccount", method = RequestMethod.GET)
     public String account(Model model) {
@@ -79,8 +83,6 @@ public class LoginController {
             return "redirect:newaccount";
         }
         userDao.save(user);
-        //model.addAttribute("student",studentDao.findAll());
-        //userDao.findById(id);
         return "home/accountconfirmation";
 
     }

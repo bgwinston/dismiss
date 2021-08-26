@@ -26,9 +26,7 @@ public class User { //Database fields//
     @Size(min = 3, max = 20)
     private String verify_password;
 
-    @NotNull
-    @Size(min = 3, max = 20)
-    private String email;
+
 
     @OneToMany
     @JoinColumn(name = "user_id")
@@ -38,7 +36,6 @@ public class User { //Database fields//
     public User(String username, String password, String email, String verify_password) {
         this.username = username;
         this.password = password;
-        this.email = email;
         this.verify_password=verify_password;
     }
 
@@ -68,8 +65,5 @@ public class User { //Database fields//
     public String getVerify_password(){return verify_password;}
 
     public void setVerify_password(String verify_password) {this.verify_password=verify_password;}
-
-    public String getEmail(){return email;}
-    public void setEmail(String email) {this.email=email;}
 
 }
