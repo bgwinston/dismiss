@@ -36,9 +36,14 @@ public class LoginController {
 
     @Autowired
     ChangetransportationDao changetransportationDao;
-
-
-    @RequestMapping(value = "home/log")
+//displays home screen
+    @RequestMapping(value = "home")
+    public String index(Model model) {
+        model.addAttribute("title", "Transportation Records");
+        return "home/home";
+    }
+//Displays all students of user
+    @RequestMapping(value = "log")
     public String log(Model model) {
         model.addAttribute("title", "Transportation Records");
         return "home/log";
@@ -62,8 +67,7 @@ public class LoginController {
             return "home/login";
         }
         if(savedUser.getPassword().equals(user.getPassword())){
-            String name=savedUser.getUsername();
-            return "home/log";
+            return "home/home";
         }else{
             model.addAttribute("error_message","Invalid Password");
             model.addAttribute("title","The Dismissal App");
