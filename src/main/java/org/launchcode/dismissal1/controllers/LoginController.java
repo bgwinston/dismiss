@@ -14,6 +14,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 @Controller
@@ -34,10 +38,10 @@ public class LoginController {
     ChangetransportationDao changetransportationDao;
 
 
-    @RequestMapping(value = "home")
+    @RequestMapping(value = "home/log")
     public String log(Model model) {
         model.addAttribute("title", "Transportation Records");
-        return "home/home";
+        return "home/log";
     }
 
     // Login Form Display
@@ -49,7 +53,7 @@ public class LoginController {
     }
 
     @RequestMapping(value = "login", method = RequestMethod.POST)
-    public String login(Model model, @ModelAttribute User user, String username, String verify_password) {
+    public String login(Model model, @ModelAttribute User user, HttpServletRequest request) {
         User savedUser=userDao.findByUsername((user.getUsername()));
         if(savedUser==null){
             model.addAttribute("error_message","Invalid Username");
@@ -58,7 +62,8 @@ public class LoginController {
             return "home/login";
         }
         if(savedUser.getPassword().equals(user.getPassword())){
-            return "redirect:home/log";
+            String name=savedUser.getUsername();
+            return "home/log";
         }else{
             model.addAttribute("error_message","Invalid Password");
             model.addAttribute("title","The Dismissal App");
